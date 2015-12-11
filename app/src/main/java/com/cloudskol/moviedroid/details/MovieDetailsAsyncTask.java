@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.details;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.cloudskol.moviedroid.common.MoviedroidException;
+import com.cloudskol.moviedroid.model.Movie;
+import com.cloudskol.moviedroid.list.MovieJsonParser;
+import com.cloudskol.moviedroid.common.SpotifyUrlConnector;
 
 /**
  * @author tham

@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.settings;
 
 
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
 import com.cloudskol.moviedroid.R;
+import com.cloudskol.moviedroid.settings.AppCompatPreferenceActivity;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

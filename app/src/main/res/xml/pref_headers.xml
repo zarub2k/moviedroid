@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.cloudskol.moviedroid.movies.MovieSettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.cloudskol.moviedroid.settings.MovieSettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.cloudskol.moviedroid.movies.MovieSettingsActivity$NotificationPreferenceFragment"
+        android:fragment="com.cloudskol.moviedroid.settings.MovieSettingsActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.cloudskol.moviedroid.movies.MovieSettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="com.cloudskol.moviedroid.settings.MovieSettingsActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 

@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.list;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.cloudskol.moviedroid.common.SpotifyUriBuilder;
+import com.cloudskol.moviedroid.model.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,6 +1,9 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.list;
 
 import android.util.Log;
+
+import com.cloudskol.moviedroid.model.Movie;
+import com.cloudskol.moviedroid.model.MovieJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +23,7 @@ public class MovieJsonParser {
 
     private MovieJsonParser() {}
 
-    static synchronized MovieJsonParser getInstance() {
+    public static synchronized MovieJsonParser getInstance() {
         return INSTANCE;
     }
 

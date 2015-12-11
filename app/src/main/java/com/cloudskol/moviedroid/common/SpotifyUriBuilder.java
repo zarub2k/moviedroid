@@ -1,10 +1,9 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.common;
 
 import android.net.Uri;
 import android.util.Log;
 
-import com.cloudskol.moviedroid.common.MoviedroidPropertyKeys;
-import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
+import com.cloudskol.moviedroid.model.SortBy;
 
 /**
  * @author tham

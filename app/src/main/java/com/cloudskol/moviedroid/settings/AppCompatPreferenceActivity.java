@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.settings;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

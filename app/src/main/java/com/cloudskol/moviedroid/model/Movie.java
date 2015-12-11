@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.model;
 
 /**
  * @author tham

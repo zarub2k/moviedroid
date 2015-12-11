@@ -1,10 +1,12 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.list;
 
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.cloudskol.moviedroid.common.MoviedroidException;
+import com.cloudskol.moviedroid.common.SpotifyUrlConnector;
+import com.cloudskol.moviedroid.model.Movie;
 
 import java.util.List;
 

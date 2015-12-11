@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,11 @@ import android.widget.GridView;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
+import com.cloudskol.moviedroid.common.SpotifyUriBuilder;
+import com.cloudskol.moviedroid.details.MovieDetailsActivity;
+import com.cloudskol.moviedroid.model.Movie;
+import com.cloudskol.moviedroid.model.SortBy;
+import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.movies;
+package com.cloudskol.moviedroid.common;
 
 import android.net.Uri;
 import android.util.Log;
