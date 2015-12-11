@@ -1,4 +1,4 @@
-package com.cloudskol.cloudroid.common;
+package com.cloudskol.moviedroid.common;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,21 +11,21 @@ import java.util.Properties;
  *
  * Property reader for Cloudroid application
  */
-public class CloudroidPropertyReader {
+public class MoviedroidPropertyReader {
 
-    private static final String LOG_TAG = CloudroidPropertyReader.class.getSimpleName();
+    private static final String LOG_TAG = MoviedroidPropertyReader.class.getSimpleName();
 
-    private static final CloudroidPropertyReader INSTANCE = new CloudroidPropertyReader();
+    private static final MoviedroidPropertyReader INSTANCE = new MoviedroidPropertyReader();
     private static final String PROPERTY_FILE = "cloudroid.properties";
 
     private static Properties properties;
     private Context context;
 
-    private CloudroidPropertyReader() {
+    private MoviedroidPropertyReader() {
         properties = new Properties();
     }
 
-    public static final CloudroidPropertyReader getInstance(Context context) {
+    public static final MoviedroidPropertyReader getInstance(Context context) {
         if (!properties.isEmpty()) {
             return INSTANCE;
         }

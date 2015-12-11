@@ -1,29 +1,26 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 import android.net.Uri;
 import android.util.Log;
 
-import com.cloudskol.cloudroid.common.CloudroidException;
+import com.cloudskol.moviedroid.common.MoviedroidException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * @author tham
  */
 public class SpotifyUrlConnector {
-    public String getJson(Uri uri) throws CloudroidException {
+    public String getJson(Uri uri) throws MoviedroidException {
         return getJson(uri.toString());
     }
 
-    public String getJson(String path) throws CloudroidException {
+    public String getJson(String path) throws MoviedroidException {
         HttpURLConnection urlConnection = null;
         BufferedReader bufferedReader = null;
         try {
@@ -50,7 +47,7 @@ public class SpotifyUrlConnector {
 
             return jsonStringBuilder.toString();
         } catch (Exception e) {
-            throw new CloudroidException(e);
+            throw new MoviedroidException(e);
         } finally {
             cleanUpResource(urlConnection, bufferedReader);
         }

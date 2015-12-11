@@ -1,10 +1,10 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 import android.net.Uri;
 import android.util.Log;
 
-import com.cloudskol.cloudroid.common.CloudroidPropertyKeys;
-import com.cloudskol.cloudroid.common.CloudroidPropertyReader;
+import com.cloudskol.moviedroid.common.MoviedroidPropertyKeys;
+import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 
 /**
  * @author tham
@@ -15,17 +15,17 @@ public class SpotifyUriBuilder {
 
     private static final String LOG_TAG = SpotifyUriBuilder.class.getSimpleName();
 
-    private CloudroidPropertyReader propertyReader_;
+    private MoviedroidPropertyReader propertyReader_;
 
-    public SpotifyUriBuilder(CloudroidPropertyReader propertyReader) {
+    public SpotifyUriBuilder(MoviedroidPropertyReader propertyReader) {
         propertyReader_ = propertyReader;
     }
 
     public Uri discoverMoviesUri(SortBy sortBy) {
-        Uri discoverMoviesUri = Uri.parse(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_DISCOVER_MOVIE))
+        Uri discoverMoviesUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_DISCOVER_MOVIE))
                 .buildUpon()
                 .appendQueryParameter("sort_by", getSortByValue(sortBy))
-                .appendQueryParameter("api_key", propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_API_KEY))
+                .appendQueryParameter("api_key", propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_API_KEY))
                 .build();
 
         Log.v(LOG_TAG, "Discover movies Uri: " + discoverMoviesUri.toString());
@@ -47,9 +47,9 @@ public class SpotifyUriBuilder {
 
     public Uri getMoviePoster185Uri(String imageUri) {
 
-        Uri moviePosterUri = Uri.parse(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_MOVIE_POSTER))
+        Uri moviePosterUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_POSTER))
                 .buildUpon()
-                .appendPath(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_MOVIE_POSTER_W185))
+                .appendPath(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_POSTER_W185))
                 .appendPath(removeSlash(imageUri))
                 .build();
 
@@ -59,9 +59,9 @@ public class SpotifyUriBuilder {
 
     public Uri getMoviePoster780Uri(String imageUri) {
 
-        Uri moviePosterUri = Uri.parse(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_MOVIE_POSTER))
+        Uri moviePosterUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_POSTER))
                 .buildUpon()
-                .appendPath(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_MOVIE_POSTER_W780))
+                .appendPath(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_POSTER_W780))
                 .appendPath(removeSlash(imageUri))
                 .build();
 
@@ -70,10 +70,10 @@ public class SpotifyUriBuilder {
     }
 
     public Uri getMovieDetails(int movieId) {
-        Uri movieDetailsUri = Uri.parse(propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_MOVIE_DETAILS))
+        Uri movieDetailsUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_DETAILS))
                 .buildUpon()
                 .appendPath(String.valueOf(movieId))
-                .appendQueryParameter("api_key", propertyReader_.getValue(CloudroidPropertyKeys.SPOTIFY_API_KEY))
+                .appendQueryParameter("api_key", propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_API_KEY))
                 .build();
 
         Log.v(LOG_TAG, "Movie details Uri: " + movieDetailsUri.toString());

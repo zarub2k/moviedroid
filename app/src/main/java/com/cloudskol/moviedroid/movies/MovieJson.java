@@ -1,4 +1,4 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 /**
  * @author tham

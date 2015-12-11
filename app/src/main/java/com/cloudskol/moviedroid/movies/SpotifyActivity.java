@@ -1,4 +1,4 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,16 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.Toast;
 
-import com.cloudskol.cloudroid.R;
-import com.cloudskol.cloudroid.common.CloudroidPropertyReader;
+import com.cloudskol.moviedroid.R;
+import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * @author tham
@@ -93,9 +89,9 @@ public class SpotifyActivity extends AppCompatActivity {
     }
 
     private void initCustomGridView() {
-        final CloudroidPropertyReader cloudroidPropertyReader = CloudroidPropertyReader
+        final MoviedroidPropertyReader moviedroidPropertyReader = MoviedroidPropertyReader
                 .getInstance(getBaseContext());
-        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(cloudroidPropertyReader);
+        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(moviedroidPropertyReader);
 
         final GridView spotifyGridView = (GridView) findViewById(R.id.gridView_spotify);
         moviesGridAdapter = new MoviesGridAdapter(this, spotifyUriBuilder, new ArrayList<Movie>(2));
@@ -114,9 +110,9 @@ public class SpotifyActivity extends AppCompatActivity {
     }
 
     private void loadMoviesData() {
-        final CloudroidPropertyReader cloudroidPropertyReader = CloudroidPropertyReader
+        final MoviedroidPropertyReader moviedroidPropertyReader = MoviedroidPropertyReader
                 .getInstance(getBaseContext());
-        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(cloudroidPropertyReader);
+        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(moviedroidPropertyReader);
 
         final DiscoverMoviesAsyncTask discoverMoviesAsyncTask = new DiscoverMoviesAsyncTask(moviesGridAdapter);
         discoverMoviesAsyncTask.execute(spotifyUriBuilder.discoverMoviesUri(getSortByPreferenceValue()));

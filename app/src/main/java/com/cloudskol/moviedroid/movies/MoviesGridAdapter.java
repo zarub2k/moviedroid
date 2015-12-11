@@ -1,13 +1,11 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.cloudskol.cloudroid.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.cloudskol.cloudroid.spotify;
+package com.cloudskol.moviedroid.movies;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.cloudskol.cloudroid.common.CloudroidException;
+import com.cloudskol.moviedroid.common.MoviedroidException;
 
 /**
  * @author tham
@@ -23,7 +23,7 @@ public class SpotifyAsyncTask extends AsyncTask<String, Void, String> {
         final SpotifyUrlConnector spotifyUrlConnector = new SpotifyUrlConnector();
         try {
             moviesJsonString = spotifyUrlConnector.getJson(path);
-        } catch (CloudroidException e) {
+        } catch (MoviedroidException e) {
             Log.e(LOG_TAG, "Error while fetching JSON", e);
             return null;
         }

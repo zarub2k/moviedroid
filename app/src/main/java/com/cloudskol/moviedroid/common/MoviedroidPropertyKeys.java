@@ -1,11 +1,11 @@
-package com.cloudskol.cloudroid.common;
+package com.cloudskol.moviedroid.common;
 
 /**
  * @author tham
  *
  * Property file keys for Cloudroid application
  */
-public interface CloudroidPropertyKeys {
+public interface MoviedroidPropertyKeys {
     String SPOTIFY_DISCOVER_MOVIE = "cloudroid.spotify.discover.movie";
     String SPOTIFY_API_KEY = "cloudroid.spotify.api.key";
     String SPOTIFY_MOVIE_POSTER = "cloudroid.spotify.movie.poster";

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cloudskol.cloudroid">
+    package="com.cloudskol.moviedroid">
 
     <!-- Permission configuration -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.cloudskol.moviedroid.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,39 +22,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".spotify.SpotifyActivity"
+            android:name="com.cloudskol.moviedroid.movies.SpotifyActivity"
             android:label="@string/title_activity_spotify"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.cloudskol.moviedroid.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.cloudroid.MainActivity" />
+                android:value="com.cloudskol.moviedroid.MainActivity" />
         </activity>
         <activity
-            android:name=".scores.ScoresActivity"
-            android:label="@string/title_activity_scores"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.cloudroid.MainActivity" />
-        </activity>
-        <activity
-            android:name=".spotify.MovieDetailsActivity"
+            android:name="com.cloudskol.moviedroid.movies.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
-            android:parentActivityName=".spotify.SpotifyActivity"
+            android:parentActivityName="com.cloudskol.moviedroid.movies.SpotifyActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.cloudroid.spotify.SpotifyActivity" />
+                android:value="com.cloudskol.moviedroid.movies.SpotifyActivity" />
         </activity>
         <activity
-            android:name=".spotify.MovieSettingsActivity"
+            android:name="com.cloudskol.moviedroid.movies.MovieSettingsActivity"
             android:label="@string/title_activity_movie_settings"
-            android:parentActivityName=".spotify.SpotifyActivity">
+            android:parentActivityName="com.cloudskol.moviedroid.movies.SpotifyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.cloudroid.spotify.SpotifyActivity" />
+                android:value="com.cloudskol.moviedroid.movies.SpotifyActivity" />
         </activity>
     </application>
 

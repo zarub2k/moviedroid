@@ -1,4 +1,4 @@
-package com.cloudskol.cloudroid;
+package com.cloudskol.moviedroid;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.cloudskol.cloudroid.scores.ScoresActivity;
-import com.cloudskol.cloudroid.spotify.SpotifyActivity;
+import com.cloudskol.moviedroid.scores.ScoresActivity;
+import com.cloudskol.moviedroid.movies.SpotifyActivity;
 
 /**
  * Main entry point for the application
