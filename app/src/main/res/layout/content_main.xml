@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="@dimen/main_left_padding"
+        android:paddingRight="@dimen/main_right_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/title"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:textSize="@dimen/title_font_size_25"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_spotify"
+            android:id="@+id/btn_spotify"
+            android:background="@color/colorOrange"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onSpotify"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_scores"
+            android:id="@+id/btn_scores"
+            android:background="@color/colorOrange"
+            android:layout_marginTop="@dimen/main_btn_top_margin"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onScores"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_library"
+            android:id="@+id/btn_library"
+            android:background="@color/colorOrange"
+            android:layout_marginTop="@dimen/main_btn_top_margin"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onLibrary"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_bigger"
+            android:id="@+id/btn_bigger"
+            android:background="@color/colorOrange"
+            android:layout_marginTop="@dimen/main_btn_top_margin"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onBigger" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_reader"
+            android:id="@+id/btn_reader"
+            android:background="@color/colorOrange"
+            android:layout_marginTop="@dimen/main_btn_top_margin"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onReader"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_btn_height"
+            android:text="@string/app_custom"
+            android:id="@+id/btn_custom"
+            android:background="@color/colorRed"
+            android:layout_marginTop="@dimen/main_btn_top_margin"
+            android:textAllCaps="true"
+            android:textSize="@dimen/main_btn_font_size"
+            android:onClick="onCustom"/>
+    </LinearLayout>
+</ScrollView>
