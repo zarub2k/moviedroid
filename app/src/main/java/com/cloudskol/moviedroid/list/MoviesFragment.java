@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cloudskol.moviedroid.R;
+
 /**
  * @author tham
  *
@@ -14,10 +16,11 @@ import android.view.ViewGroup;
  * This fragment will be shown by defalt when the app starts
  */
 public class MoviesFragment extends Fragment {
+    
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstance) {
-        return null;
+        final View rootView = inflater.inflate(R.layout.movie_list_activity, container, false);
+        return rootView;
     }
-
 }
