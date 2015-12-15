@@ -16,7 +16,7 @@ public class MoviedroidPropertyReader {
     private static final String LOG_TAG = MoviedroidPropertyReader.class.getSimpleName();
 
     private static final MoviedroidPropertyReader INSTANCE = new MoviedroidPropertyReader();
-    private static final String PROPERTY_FILE = "cloudroid.properties";
+    private static final String PROPERTY_FILE = "moviedroid.properties";
 
     private static Properties properties;
     private Context context;
