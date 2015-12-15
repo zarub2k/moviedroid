@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Cloudroid</string>
-    <string name="title">Cloudroid Apps!</string>
+    <string name="app_name">Moviedroid</string>
+    <string name="title">Moviedroid Apps!</string>
 
     <string name="app_spotify">SPOTIFY MOVIES</string>
     <string name="app_scores">SCORES APP</string>
@@ -9,7 +9,7 @@
     <string name="app_reader">CLOUD READER</string>
     <string name="app_custom">CUSTOM APP</string>
 
-    <string name="title_activity_movies">Movies</string>
+    <string name="title_activity_movies">Top 20 Movies</string>
     <string name="title_activity_scores">Scores Activity</string>
     <string name="title_activity_spotify">Spotify Movies</string>
 

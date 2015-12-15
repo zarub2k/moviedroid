@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".list.MovieListActivity"
-            android:label="@string/title_activity_spotify"
+            android:label="@string/title_activity_movies"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
