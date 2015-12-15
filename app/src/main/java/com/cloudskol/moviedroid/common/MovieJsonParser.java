@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.list;
+package com.cloudskol.moviedroid.common;
 
 import android.util.Log;
 

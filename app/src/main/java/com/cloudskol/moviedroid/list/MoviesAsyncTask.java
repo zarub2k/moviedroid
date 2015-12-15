@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.cloudskol.moviedroid.common.MovieJsonParser;
 import com.cloudskol.moviedroid.common.MoviedroidException;
 import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Movie;
@@ -15,13 +16,13 @@ import java.util.List;
  *
  * Async task handler for fetching movies list from the remote Uri
  */
-public class DiscoverMoviesAsyncTask extends AsyncTask<Uri, Void, List<Movie>> {
+public class MoviesAsyncTask extends AsyncTask<Uri, Void, List<Movie>> {
 
-    private static final String LOG_TAG = DiscoverMoviesAsyncTask.class.getSimpleName();
+    private static final String LOG_TAG = MoviesAsyncTask.class.getSimpleName();
 
     private MoviesGridAdapter moviesGridAdapter_;
 
-    public DiscoverMoviesAsyncTask(MoviesGridAdapter moviesGridAdapter) {
+    public MoviesAsyncTask(MoviesGridAdapter moviesGridAdapter) {
         moviesGridAdapter_ = moviesGridAdapter;
     }
 

@@ -28,9 +28,9 @@ import java.util.ArrayList;
  *
  * Activity class for moviedroid application
  */
-public class MovieListActivity extends AppCompatActivity {
+public class MoviesActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = MovieListActivity.class.getSimpleName();
+    private static final String LOG_TAG = MoviesActivity.class.getSimpleName();
 
     private MoviesGridAdapter moviesGridAdapter;
 
@@ -119,8 +119,8 @@ public class MovieListActivity extends AppCompatActivity {
                 .getInstance(getBaseContext());
         final MoviedroidUriBuilder moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
 
-        final DiscoverMoviesAsyncTask discoverMoviesAsyncTask = new DiscoverMoviesAsyncTask(moviesGridAdapter);
-        discoverMoviesAsyncTask.execute(moviedroidUriBuilder.discoverMoviesUri(getSortByPreferenceValue()));
+        final MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(moviesGridAdapter);
+        moviesAsyncTask.execute(moviedroidUriBuilder.discoverMoviesUri(getSortByPreferenceValue()));
     }
 
     /**
