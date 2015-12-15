@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.cloudskol.moviedroid.list.SpotifyActivity"
+            android:name=".list.MovieListActivity"
             android:label="@string/title_activity_spotify"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cloudskol.moviedroid.movies.SpotifyActivity"
+            android:name="com.cloudskol.moviedroid.movies.MovieListActivity"
             android:label="@string/title_activity_spotify"
             android:parentActivityName="com.cloudskol.moviedroid.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -43,19 +43,19 @@
         <activity
             android:name=".details.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
-            android:parentActivityName="com.cloudskol.moviedroid.list.SpotifyActivity"
+            android:parentActivityName=".list.MovieListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.moviedroid.list.SpotifyActivity" />
+                android:value=".list.MovieListActivity" />
         </activity>
         <activity
             android:name=".settings.MovieSettingsActivity"
             android:label="@string/title_activity_movie_settings"
-            android:parentActivityName="com.cloudskol.moviedroid.list.SpotifyActivity">
+            android:parentActivityName=".list.MovieListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cloudskol.moviedroid.list.SpotifyActivity" />
+                android:value=".list.MovieListActivity" />
         </activity>
     </application>
 

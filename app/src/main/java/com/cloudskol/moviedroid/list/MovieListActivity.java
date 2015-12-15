@@ -28,9 +28,9 @@ import java.util.ArrayList;
  *
  * Activity class for spotify application
  */
-public class SpotifyActivity extends AppCompatActivity {
+public class MovieListActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = SpotifyActivity.class.getSimpleName();
+    private static final String LOG_TAG = MovieListActivity.class.getSimpleName();
 
     private MoviesGridAdapter moviesGridAdapter;
 
