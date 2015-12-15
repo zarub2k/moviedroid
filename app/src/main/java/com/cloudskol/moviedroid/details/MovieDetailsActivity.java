@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
+import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.model.Movie;
-import com.cloudskol.moviedroid.common.SpotifyUriBuilder;
 import com.squareup.picasso.Picasso;
 
 public class MovieDetailsActivity extends AppCompatActivity {
@@ -46,19 +46,19 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private void renderMovieDetails(int movieId) {
         final MoviedroidPropertyReader moviedroidPropertyReader = MoviedroidPropertyReader
                 .getInstance(getBaseContext());
-        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(moviedroidPropertyReader);
+        final MoviedroidUriBuilder moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
 
         MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
-        movieDetailsTask.execute(spotifyUriBuilder.getMovieDetails(movieId));
+        movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
     }
 
     public void onMovieDataReceived(Movie movie) {
         final MoviedroidPropertyReader moviedroidPropertyReader = MoviedroidPropertyReader
                 .getInstance(getBaseContext());
-        final SpotifyUriBuilder spotifyUriBuilder = new SpotifyUriBuilder(moviedroidPropertyReader);
+        final MoviedroidUriBuilder moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
 
         final ImageView posterImage = (ImageView) findViewById(R.id.movie_details_poster);
-        Picasso.with(this).load(spotifyUriBuilder.getMoviePoster780Uri(movie.getBackdrop())).into(posterImage);
+        Picasso.with(this).load(moviedroidUriBuilder.getMoviePoster780Uri(movie.getBackdrop())).into(posterImage);
 
         TextView title = (TextView) findViewById(R.id.movie_details_title);
         title.setText(movie.getTitle());

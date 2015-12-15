@@ -15,7 +15,7 @@ import java.net.URL;
 /**
  * @author tham
  */
-public class SpotifyUrlConnector {
+public class MoviedroidUrlConnector {
     public String getJson(Uri uri) throws MoviedroidException {
         return getJson(uri.toString());
     }
@@ -68,7 +68,7 @@ public class SpotifyUrlConnector {
             try {
                 bufferedReader.close();
             } catch (final IOException e) {
-                Log.e("SpotifyUrlConnector", "Error while closing the buffered reader", e);
+                Log.e("MoviedroidUrlConnector", "Error while closing the buffered reader", e);
             }
         }
     }

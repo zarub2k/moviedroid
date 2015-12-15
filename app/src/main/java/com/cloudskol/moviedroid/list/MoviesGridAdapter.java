@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.cloudskol.moviedroid.common.SpotifyUriBuilder;
+import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.model.Movie;
 import com.squareup.picasso.Picasso;
 
@@ -19,13 +19,13 @@ import java.util.List;
  */
 public class MoviesGridAdapter extends BaseAdapter {
     private Context context_;
-    private SpotifyUriBuilder spotifyUriBuilder_;
+    private MoviedroidUriBuilder moviedroidUriBuilder_;
     private List<Movie> movies_;
 
-    public MoviesGridAdapter(Context context, SpotifyUriBuilder spotifyUriBuilder,
+    public MoviesGridAdapter(Context context, MoviedroidUriBuilder moviedroidUriBuilder,
                              List<Movie> movies) {
         context_ = context;
-        spotifyUriBuilder_ = spotifyUriBuilder;
+        moviedroidUriBuilder_ = moviedroidUriBuilder;
         movies_ = movies;
     }
 
@@ -57,12 +57,12 @@ public class MoviesGridAdapter extends BaseAdapter {
         }
 //
 //        final Movie movie = movies_.get(position);
-//        imageView.setImageURI(spotifyUriBuilder_.getMoviePoster185Uri(movie.getPoster()));
+//        imageView.setImageURI(moviedroidUriBuilder_.getMoviePoster185Uri(movie.getPoster()));
 //
 //        return imageView;
 
         final Movie movie = movies_.get(position);
-        Picasso.with(context_).load(spotifyUriBuilder_.getMoviePoster185Uri(movie.getPoster())).into(imageView);
+        Picasso.with(context_).load(moviedroidUriBuilder_.getMoviePoster185Uri(movie.getPoster())).into(imageView);
         return imageView;
     }
 

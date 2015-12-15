@@ -10,13 +10,13 @@ import com.cloudskol.moviedroid.model.SortBy;
  *
  * Utility class for building Uri for list of movies and movie details
  */
-public class SpotifyUriBuilder {
+public class MoviedroidUriBuilder {
 
-    private static final String LOG_TAG = SpotifyUriBuilder.class.getSimpleName();
+    private static final String LOG_TAG = MoviedroidUriBuilder.class.getSimpleName();
 
     private MoviedroidPropertyReader propertyReader_;
 
-    public SpotifyUriBuilder(MoviedroidPropertyReader propertyReader) {
+    public MoviedroidUriBuilder(MoviedroidPropertyReader propertyReader) {
         propertyReader_ = propertyReader;
     }
 

@@ -6,9 +6,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.cloudskol.moviedroid.common.MoviedroidException;
+import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.list.MovieJsonParser;
-import com.cloudskol.moviedroid.common.SpotifyUrlConnector;
 
 /**
  * @author tham
@@ -33,9 +33,9 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
 
         String movieDetailsJsonString;
         final Uri movieDetailsUri = Uris[0];
-        final SpotifyUrlConnector spotifyUrlConnector = new SpotifyUrlConnector();
+        final MoviedroidUrlConnector moviedroidUrlConnector = new MoviedroidUrlConnector();
         try {
-            movieDetailsJsonString = spotifyUrlConnector.getJson(movieDetailsUri);
+            movieDetailsJsonString = moviedroidUrlConnector.getJson(movieDetailsUri);
         } catch (MoviedroidException e) {
             Log.e(LOG_TAG, "Error while fetching movie details", e);
             return null;
