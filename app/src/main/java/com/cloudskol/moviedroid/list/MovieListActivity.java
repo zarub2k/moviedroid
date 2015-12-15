@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /**
  * @author tham
  *
- * Activity class for spotify application
+ * Activity class for moviedroid application
  */
 public class MovieListActivity extends AppCompatActivity {
 
