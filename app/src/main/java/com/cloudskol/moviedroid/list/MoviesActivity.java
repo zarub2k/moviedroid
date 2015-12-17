@@ -90,7 +90,6 @@ public class MoviesActivity extends AppCompatActivity {
 
     private void renderMovies() {
         initCustomGridView();
-//        loadMoviesData();
     }
 
     private void initCustomGridView() {
