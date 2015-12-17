@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 
 /**
  * @author tham
+ *
+ * Fragment implementation for showing movie details
  */
 public class DetailFragment extends Fragment {
     final MoviedroidPropertyReader moviedroidPropertyReader;

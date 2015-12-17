@@ -7,6 +7,10 @@ import com.cloudskol.moviedroid.R;
 
 /**
  * @author tham
+ *
+ * Activity responsible for showing the details of the selected movie
+ * This will internally use DetailFragment for rendering the details of the selected movie
+ *
  */
 public class DetailActivity extends AppCompatActivity {
     private static final String LOG_TAG = DetailActivity.class.getSimpleName();
