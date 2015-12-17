@@ -2,9 +2,9 @@ package com.cloudskol.moviedroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 
 import com.cloudskol.moviedroid.details.DetailFragment;
-import com.cloudskol.moviedroid.list.MoviesFragment;
 
 /**
  * @author tham
@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             hasDetailLayout_ = false;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_spotify, menu);
+        return true;
     }
 
     private void renderDetailLayout(Bundle savedInstanceState) {
