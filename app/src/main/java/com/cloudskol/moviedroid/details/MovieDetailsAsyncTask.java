@@ -19,10 +19,10 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
 
     private static final String LOG_TAG = MovieDetailsAsyncTask.class.getSimpleName();
 
-    private Context context_;
+    private DetailFragment detailFragment_;
 
-    public MovieDetailsAsyncTask(Context context) {
-        context_ = context;
+    public MovieDetailsAsyncTask(DetailFragment detailFragment) {
+        detailFragment_ = detailFragment;
     }
 
     @Override
@@ -49,8 +49,8 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
     protected void onPostExecute(Movie movie) {
         super.onPostExecute(movie);
 
-        if (context_ instanceof MovieDetailsActivity) {
-            ((MovieDetailsActivity)context_).onMovieDataReceived(movie);
+        if (detailFragment_ instanceof DetailFragment) {
+            ((DetailFragment)detailFragment_).onMovieDataReceived(movie);
         }
     }
 }

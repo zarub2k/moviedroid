@@ -48,8 +48,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 .getInstance(getBaseContext());
         final MoviedroidUriBuilder moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
 
-        MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
-        movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
+//        MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
+//        movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
     }
 
     public void onMovieDataReceived(Movie movie) {

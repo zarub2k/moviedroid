@@ -14,7 +14,7 @@ import android.widget.GridView;
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
-import com.cloudskol.moviedroid.details.MovieDetailsActivity;
+import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.model.SortBy;
 
@@ -57,7 +57,7 @@ public class MoviesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final Intent movieDetailsIntent = new Intent(getActivity(),
-                        MovieDetailsActivity.class)
+                        DetailActivity.class)
                         .putExtra(Intent.EXTRA_TEXT, moviesGridAdapter.getItem(position).getId());
                 startActivity(movieDetailsIntent);
             }
