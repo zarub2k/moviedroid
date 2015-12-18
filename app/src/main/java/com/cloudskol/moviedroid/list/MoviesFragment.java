@@ -40,6 +40,12 @@ public class MoviesFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        loadMoviesData();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.movie_list_activity, container, false);
