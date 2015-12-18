@@ -1,13 +1,9 @@
 package com.cloudskol.moviedroid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.cloudskol.moviedroid.details.DetailFragment;
-import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 /**
  * @author tham
@@ -32,33 +28,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_spotify, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-//        if (itemId == R.id.action_refresh) {
-//            loadMoviesData();
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_spotify, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        final int itemId = item.getItemId();
+////        if (itemId == R.id.action_refresh) {
+////            loadMoviesData();
+////            return true;
+////        }
+//
+//        if (itemId == R.id.action_settings) {
+//            showSettings();
 //            return true;
 //        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
-        if (itemId == R.id.action_settings) {
-            showSettings();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void showSettings() {
-        final Intent movieSettingsIntent = new Intent(this, MovieSettingsActivity.class);
-        startActivity(movieSettingsIntent);
-    }
+//    private void showSettings() {
+//        final Intent movieSettingsIntent = new Intent(this, MovieSettingsActivity.class);
+//        startActivity(movieSettingsIntent);
+//    }
 
     private void renderDetailLayout(Bundle savedInstanceState) {
         hasDetailLayout_ = true;

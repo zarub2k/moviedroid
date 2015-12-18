@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,6 +20,7 @@ import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.model.SortBy;
+import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 import java.util.ArrayList;
 
@@ -37,6 +41,34 @@ public class MoviesFragment extends Fragment {
 
         moviedroidPropertyReader = MoviedroidPropertyReader.getInstance(getActivity());
         moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_spotify, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.action_refresh) {
+            loadMoviesData();
+            return true;
+        }
+
+        if (itemId == R.id.action_settings) {
+            showSettings();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showSettings() {
+        final Intent movieSettingsIntent = new Intent(getActivity(), MovieSettingsActivity.class);
+        startActivity(movieSettingsIntent);
     }
 
     @Override
