@@ -31,19 +31,6 @@ public class MoviedroidUriBuilder {
         return discoverMoviesUri;
     }
 
-    private String getSortByValue(SortBy sortBy) {
-
-        if (SortBy.MOST_POPULAR == sortBy) {
-            return "popularity.desc";
-        }
-
-        if (SortBy.HIGHEST_RATED == sortBy) {
-            return "vote_average.desc";
-        }
-
-        return "popularity.desc";
-    }
-
     public Uri getMoviePoster185Uri(String imageUri) {
 
         Uri moviePosterUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_POSTER))
@@ -77,6 +64,31 @@ public class MoviedroidUriBuilder {
 
         Log.v(LOG_TAG, "Movie details Uri: " + movieDetailsUri.toString());
         return movieDetailsUri;
+    }
+
+    public Uri getTrailer(int movieId) {
+        Uri movieTrailerUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_DETAILS))
+                .buildUpon()
+                .appendPath(String.valueOf(movieId))
+                .appendPath("videos")
+                .appendQueryParameter("api_key", propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_API_KEY))
+                .build();
+
+        Log.v(LOG_TAG, "Movie trailer Uri: " + movieTrailerUri.toString());
+        return movieTrailerUri;
+    }
+
+    private String getSortByValue(SortBy sortBy) {
+
+        if (SortBy.MOST_POPULAR == sortBy) {
+            return "popularity.desc";
+        }
+
+        if (SortBy.HIGHEST_RATED == sortBy) {
+            return "vote_average.desc";
+        }
+
+        return "popularity.desc";
     }
 
     private String removeSlash(String value) {
