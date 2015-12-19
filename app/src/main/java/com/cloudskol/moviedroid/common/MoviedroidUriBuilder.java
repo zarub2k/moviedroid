@@ -66,7 +66,7 @@ public class MoviedroidUriBuilder {
         return movieDetailsUri;
     }
 
-    public Uri getVideos(int movieId) {
+    public Uri getTrailer(int movieId) {
         Uri movieTrailerUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_DETAILS))
                 .buildUpon()
                 .appendPath(String.valueOf(movieId))

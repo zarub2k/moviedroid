@@ -25,13 +25,13 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
     }
 
     @Override
-    protected Movie doInBackground(Uri... Uris) {
-        if (Uris.length <= 0) {
+    protected Movie doInBackground(Uri... uris) {
+        if (uris.length <= 0) {
             return null;
         }
 
         String movieDetailsJsonString;
-        final Uri movieDetailsUri = Uris[0];
+        final Uri movieDetailsUri = uris[0];
         final MoviedroidUrlConnector moviedroidUrlConnector = new MoviedroidUrlConnector();
         try {
             movieDetailsJsonString = moviedroidUrlConnector.getJson(movieDetailsUri);

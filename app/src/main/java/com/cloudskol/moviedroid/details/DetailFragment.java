@@ -49,7 +49,14 @@ public class DetailFragment extends Fragment {
 
         final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
         renderMovieDetails(movieId);
+
+        renderTrailer(movieId);
         return rootView;
+    }
+
+    private void renderTrailer(int movieId) {
+        final TrailerTask trailerTask = new TrailerTask(this);
+        trailerTask.execute(moviedroidUriBuilder.getTrailer(movieId));
     }
 
     private void renderMovieDetails(int movieId) {
