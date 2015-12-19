@@ -1,6 +1,5 @@
 package com.cloudskol.moviedroid.details;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -8,7 +7,7 @@ import android.util.Log;
 import com.cloudskol.moviedroid.common.MoviedroidException;
 import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Movie;
-import com.cloudskol.moviedroid.common.MovieJsonParser;
+import com.cloudskol.moviedroid.parser.MovieJsonParser;
 
 /**
  * @author tham

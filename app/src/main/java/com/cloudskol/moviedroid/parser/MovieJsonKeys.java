@@ -1,9 +1,9 @@
-package com.cloudskol.moviedroid.model;
+package com.cloudskol.moviedroid.parser;
 
 /**
  * @author tham
  */
-public enum MovieJson {
+public enum MovieJsonKeys {
     BACKDROP("backdrop_path"),
     ID("id"),
     ORIGINAL_TITLE("original_title"),
@@ -14,7 +14,7 @@ public enum MovieJson {
     TITLE("title");
 
     private String value_;
-    private MovieJson(String value) {
+    private MovieJsonKeys(String value) {
         value_ = value;
     }
 

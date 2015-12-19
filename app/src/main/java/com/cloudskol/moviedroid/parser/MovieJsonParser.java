@@ -1,9 +1,8 @@
-package com.cloudskol.moviedroid.common;
+package com.cloudskol.moviedroid.parser;
 
 import android.util.Log;
 
 import com.cloudskol.moviedroid.model.Movie;
-import com.cloudskol.moviedroid.model.MovieJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,14 +64,14 @@ public class MovieJsonParser {
     }
 
     private Movie getMovie(JSONObject movieJson) throws JSONException {
-        Movie movie = new Movie(movieJson.getInt(MovieJson.ID.getValue()),
-                movieJson.getString(MovieJson.TITLE.getValue()));
-        movie.setOverview(movieJson.getString(MovieJson.OVERVIEW.getValue()));
-        movie.setPoster(movieJson.getString(MovieJson.POSTER.getValue()));
-        movie.setBackdrop(movieJson.getString(MovieJson.BACKDROP.getValue()));
-        int rating = movieJson.getInt(MovieJson.RATING.getValue());
+        Movie movie = new Movie(movieJson.getInt(MovieJsonKeys.ID.getValue()),
+                movieJson.getString(MovieJsonKeys.TITLE.getValue()));
+        movie.setOverview(movieJson.getString(MovieJsonKeys.OVERVIEW.getValue()));
+        movie.setPoster(movieJson.getString(MovieJsonKeys.POSTER.getValue()));
+        movie.setBackdrop(movieJson.getString(MovieJsonKeys.BACKDROP.getValue()));
+        int rating = movieJson.getInt(MovieJsonKeys.RATING.getValue());
         movie.setRating(rating/2); //Rating will be considered based on 5 stars
-        movie.setReleaseDate(movieJson.getString(MovieJson.RELEASE_DATE.getValue()));
+        movie.setReleaseDate(movieJson.getString(MovieJsonKeys.RELEASE_DATE.getValue()));
         return movie;
     }
 }
