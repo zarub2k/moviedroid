@@ -1,5 +1,6 @@
 package com.cloudskol.moviedroid.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,9 @@ import java.util.List;
  */
 public class Trailer {
     private int movieId;
-    private List<Video> videos;
+    private List<Video> videos = new ArrayList<>(2);
+
+    public Trailer() {}
 
     public Trailer(int movieId, List<Video> videos) {
         this.movieId = movieId;

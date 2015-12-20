@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -51,11 +52,15 @@ public class DetailFragment extends Fragment {
         final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
         renderMovieDetails(movieId);
 
-        renderTrailer(movieId);
+        final View trailerView = inflater.inflate(R.layout.trailer_content, container, false);
+        renderTrailer(trailerView, movieId);
         return rootView;
     }
 
-    private void renderTrailer(int movieId) {
+    private void renderTrailer(View trailerView, int movieId) {
+        final ListView trailerListView = (ListView) trailerView.findViewById(R.id.trailer_listview);
+        trailerListView.setAdapter(new TrailerListAdapter(getContext(), new Trailer()));
+
         final TrailerTask trailerTask = new TrailerTask(this);
         trailerTask.execute(moviedroidUriBuilder.getTrailer(movieId));
     }
