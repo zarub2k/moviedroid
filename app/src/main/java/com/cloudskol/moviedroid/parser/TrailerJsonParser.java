@@ -32,15 +32,16 @@ public class TrailerJsonParser {
         return INSTANCE;
     }
 
-    public Trailer getTrailer(String trailerJsonString) throws MoviedroidException {
+    public Trailer getTrailer(String trailerJsonString) {
         try {
             final JSONObject trailerJson = new JSONObject(trailerJsonString);
             return getTrailer(trailerJson);
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Error while parsing trailerJsonString", e);
-            throw new MoviedroidException(e);
         }
+
+        return null;
     }
 
     private Trailer getTrailer(JSONObject trailerJson) throws JSONException {

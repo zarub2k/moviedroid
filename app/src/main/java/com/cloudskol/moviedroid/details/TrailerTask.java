@@ -2,13 +2,19 @@ package com.cloudskol.moviedroid.details;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.cloudskol.moviedroid.common.MoviedroidException;
+import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Trailer;
+import com.cloudskol.moviedroid.parser.TrailerJsonParser;
 
 /**
  * @author tham
  */
 public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
+    private static final String LOG_TAG = TrailerTask.class.getSimpleName();
+
     private DetailFragment detailFragment_;;
 
     public TrailerTask(DetailFragment detailFragment) {
@@ -21,7 +27,17 @@ public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
             return null;
         }
 
+        String trailerJson;
         Uri trailerUri = params[0];
-        return null;
+        final MoviedroidUrlConnector moviedroidUrlConnector = new MoviedroidUrlConnector();
+        try {
+            trailerJson = moviedroidUrlConnector.getJson(trailerUri);
+        } catch (MoviedroidException e) {
+            Log.e(LOG_TAG, "Error while fetching trailer JSON", e);
+            return null;
+        }
+
+        Log.v(LOG_TAG, "Trailer Json: " + trailerJson);
+        return TrailerJsonParser.getInstance().getTrailer(trailerJson);
     }
 }
