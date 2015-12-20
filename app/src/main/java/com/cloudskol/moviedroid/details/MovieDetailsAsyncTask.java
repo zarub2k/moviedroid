@@ -48,8 +48,6 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
     protected void onPostExecute(Movie movie) {
         super.onPostExecute(movie);
 
-        if (detailFragment_ instanceof DetailFragment) {
-            ((DetailFragment)detailFragment_).onMovieDataReceived(movie);
-        }
+        detailFragment_.onMovieDataReceived(movie);
     }
 }

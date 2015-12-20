@@ -40,4 +40,10 @@ public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
         Log.v(LOG_TAG, "Trailer Json: " + trailerJson);
         return TrailerJsonParser.getInstance().getTrailer(trailerJson);
     }
+
+    @Override
+    protected void onPostExecute(Trailer trailer) {
+        super.onPostExecute(trailer);
+        detailFragment_.onTrailerDataReceived(trailer);
+    }
 }

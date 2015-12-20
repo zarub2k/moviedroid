@@ -14,6 +14,7 @@ import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.model.Movie;
+import com.cloudskol.moviedroid.model.Trailer;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -70,5 +71,9 @@ public class DetailFragment extends Fragment {
         overview.setText(movie.getOverview());
         ratingBar.setRating(movie.getRating());
         releaseDateView.setText(movie.getReleaseDate());
+    }
+
+    public void onTrailerDataReceived(Trailer trailer) {
+
     }
 }
