@@ -49,6 +49,8 @@
             android:textSize="@dimen/title_font_size_15"
             android:textStyle="bold"/>
 
+        <include layout="@layout/trailer_content" />
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="@dimen/hline_height"
