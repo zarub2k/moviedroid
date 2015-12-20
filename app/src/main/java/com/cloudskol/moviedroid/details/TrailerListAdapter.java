@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.model.Trailer;
+import com.cloudskol.moviedroid.model.Video;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,22 +22,27 @@ public class TrailerListAdapter extends BaseAdapter {
     Context context_;
     LayoutInflater layoutInflater_;
 
-    private List<Trailer> trailers;
+    private Trailer trailer;
+    private List<Video> videos = new ArrayList<>(2);
 
-    public TrailerListAdapter(Context context, List<Trailer> trailers) {
+    public TrailerListAdapter(Context context, Trailer trailer) {
         context_ = context;
-        this.trailers = trailers;
+        this.trailer = trailer;
         layoutInflater_ = (LayoutInflater) context_.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        if (trailer.getVideos() != null) {
+            videos.addAll(trailer.getVideos());
+        }
     }
 
     @Override
     public int getCount() {
-        return trailers.size();
+        return videos.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return trailers.get(position);
+        return videos.get(position);
     }
 
     @Override
@@ -45,15 +52,20 @@ public class TrailerListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
+        TrailerViewHolder holder = null;
         if (view == null) {
             view = layoutInflater_.inflate(R.layout.trailer_list_item, parent);
-            view.findViewById(R.id.trailer_name);
+            holder = new TrailerViewHolder();
+            holder.trailerNameView = (TextView) view.findViewById(R.id.trailer_name);
+            view.setTag(holder);
+        } else {
+            holder = (TrailerViewHolder) view.getTag();
         }
 
-        final Trailer trailer = trailers.get(position);
+        final Video video = videos.get(position);
+        holder.trailerNameView.setText(video.getName());
 
-
-        return null;
+        return view;
     }
 
     private class TrailerViewHolder {
