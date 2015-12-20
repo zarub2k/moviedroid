@@ -6,4 +6,5 @@
 
     <color name="colorOrange">#FF6D00</color>
     <color name="colorRed">#FF1744</color>
+    <color name="hline">#c0c0c0</color>
 </resources>

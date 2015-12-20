@@ -36,20 +36,25 @@
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="4dp"
-            android:background="#c0c0c0" />
+            android:layout_height="@dimen/hline_height"
+            android:background="@color/hline"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/title_activity_movie_trailers"
-            android:textSize="@dimen/title_font_size_25"
+            android:text="@string/title_activity_movie_trailers"
+            android:textSize="@dimen/title_font_size_15"
             android:textStyle="bold"/>
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="4dp"
-            android:background="#c0c0c0" />
+            android:layout_height="@dimen/hline_height"
+            android:background="@color/hline"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
 
         <TextView
             android:layout_width="wrap_content"

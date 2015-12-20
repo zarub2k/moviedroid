@@ -6,10 +6,13 @@
     <dimen name="main_left_padding">100dp</dimen>
     <dimen name="main_right_padding">100dp</dimen>
     <dimen name="main_btn_height">50dp</dimen>
-    <dimen name="main_btn_top_margin">10dp</dimen>
+    <dimen name="margin_top_10dp">10dp</dimen>
+    <dimen name="margin_bottom_10dp">10dp</dimen>
     <dimen name="main_btn_font_size">15sp</dimen>
 
     <dimen name="title_font_size_25">25sp</dimen>
     <dimen name="title_font_size_15">15sp</dimen>
     <dimen name="details_title_top_margin">10dp</dimen>
+
+    <dimen name="hline_height">4dp</dimen>
 </resources>
