@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * @author tham
+ *
+ * Adapter implementation for Trailers
  */
 public class TrailerListAdapter extends BaseAdapter {
     Context context_;
