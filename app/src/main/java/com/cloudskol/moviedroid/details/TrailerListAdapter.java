@@ -2,6 +2,7 @@ package com.cloudskol.moviedroid.details;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,19 +22,21 @@ import java.util.List;
  * Adapter implementation for Trailers
  */
 public class TrailerListAdapter extends BaseAdapter {
+    private static final String LOG_TAG = TrailerListAdapter.class.getSimpleName();
+
     Context context_;
     LayoutInflater layoutInflater_;
 
-    private Trailer trailer;
-    private List<Video> videos = new ArrayList<>(2);
+    private Trailer trailer_;
+    private List<Video> videos;
 
     public TrailerListAdapter(Context context, Trailer trailer) {
         context_ = context;
-        this.trailer = trailer;
+        trailer_ = trailer;
         layoutInflater_ = (LayoutInflater) context_.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (trailer.getVideos() != null) {
-            videos.addAll(trailer.getVideos());
+        if (trailer_.getVideos() != null) {
+            videos = new ArrayList<Video>(trailer_.getVideos());
         }
     }
 
@@ -43,7 +46,7 @@ public class TrailerListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Video getItem(int position) {
         return videos.get(position);
     }
 
@@ -55,8 +58,11 @@ public class TrailerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         TrailerViewHolder holder = null;
+
+        Log.v(LOG_TAG, "View: " + view.toString());
+
         if (view == null) {
-            view = layoutInflater_.inflate(R.layout.trailer_list_item, parent);
+            view = layoutInflater_.inflate(R.layout.trailer_list_item, parent, false);
             holder = new TrailerViewHolder();
             holder.trailerNameView = (TextView) view.findViewById(R.id.trailer_name);
             view.setTag(holder);
@@ -67,10 +73,20 @@ public class TrailerListAdapter extends BaseAdapter {
         final Video video = videos.get(position);
         holder.trailerNameView.setText(video.getName());
 
+        Log.v(LOG_TAG, "Video name: " + video.getName());
+
         return view;
     }
 
     private class TrailerViewHolder {
         TextView trailerNameView;
+    }
+
+    public void setTrailer(Trailer trailer) {
+        trailer_ = trailer;
+        videos.clear();
+        videos.addAll(trailer.getVideos());
+
+        notifyDataSetChanged();
     }
 }

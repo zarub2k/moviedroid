@@ -16,6 +16,7 @@ import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.model.Trailer;
+import com.cloudskol.moviedroid.model.Video;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -32,6 +33,8 @@ public class DetailFragment extends Fragment {
     private TextView overview;
     private RatingBar ratingBar;
     private TextView releaseDateView;
+
+    TrailerListAdapter trailerListAdapter;
 
     public DetailFragment() {
         setHasOptionsMenu(true);
@@ -59,7 +62,12 @@ public class DetailFragment extends Fragment {
 
     private void renderTrailer(View trailerView, int movieId) {
         final ListView trailerListView = (ListView) trailerView.findViewById(R.id.trailer_listview);
-        trailerListView.setAdapter(new TrailerListAdapter(getContext(), new Trailer()));
+
+        final Trailer trailer = new Trailer();
+        trailer.addVideo(new Video("abc", "xyx"));
+
+        trailerListAdapter = new TrailerListAdapter(getContext(), trailer);
+        trailerListView.setAdapter(trailerListAdapter);
 
         final TrailerTask trailerTask = new TrailerTask(this);
         trailerTask.execute(moviedroidUriBuilder.getTrailer(movieId));
@@ -79,6 +87,6 @@ public class DetailFragment extends Fragment {
     }
 
     public void onTrailerDataReceived(Trailer trailer) {
-
+        trailerListAdapter.setTrailer(trailer);
     }
 }

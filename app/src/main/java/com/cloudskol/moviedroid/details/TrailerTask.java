@@ -45,5 +45,6 @@ public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
     protected void onPostExecute(Trailer trailer) {
         super.onPostExecute(trailer);
         detailFragment_.onTrailerDataReceived(trailer);
+        Log.v(LOG_TAG, "Trailer received " + trailer);
     }
 }

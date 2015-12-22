@@ -63,6 +63,8 @@ public class TrailerJsonParser {
 
         }
 
+        Log.v(LOG_TAG, "Number of videos: " + videos.size());
+
         return new Trailer(trailerJson.getInt(TrailerJsonKeys.ID.getValue()), videos);
     }
 }
