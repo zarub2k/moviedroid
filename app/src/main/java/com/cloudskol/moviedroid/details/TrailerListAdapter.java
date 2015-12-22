@@ -1,6 +1,5 @@
 package com.cloudskol.moviedroid.details;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +37,8 @@ public class TrailerListAdapter extends BaseAdapter {
         if (trailer_.getVideos() != null) {
             videos = new ArrayList<Video>(trailer_.getVideos());
         }
+
+        Log.v(LOG_TAG, "Constructor called");
     }
 
     @Override
@@ -59,10 +60,8 @@ public class TrailerListAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         TrailerViewHolder holder = null;
 
-        Log.v(LOG_TAG, "View: " + view.toString());
-
         if (view == null) {
-            view = layoutInflater_.inflate(R.layout.trailer_list_item, parent, false);
+            view = layoutInflater_.inflate(R.layout.trailer_list_item, null, false);
             holder = new TrailerViewHolder();
             holder.trailerNameView = (TextView) view.findViewById(R.id.trailer_name);
             view.setTag(holder);
@@ -83,6 +82,7 @@ public class TrailerListAdapter extends BaseAdapter {
     }
 
     public void setTrailer(Trailer trailer) {
+        Log.v(LOG_TAG, "setTrailer called");
         trailer_ = trailer;
         videos.clear();
         videos.addAll(trailer.getVideos());

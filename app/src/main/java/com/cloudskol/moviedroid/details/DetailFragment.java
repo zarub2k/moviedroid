@@ -3,6 +3,7 @@ package com.cloudskol.moviedroid.details;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,9 @@ import com.squareup.picasso.Picasso;
  * Fragment implementation for showing movie details
  */
 public class DetailFragment extends Fragment {
+    private static final String LOG_TAG = DetailFragment.class.getSimpleName();
+
+
     final MoviedroidPropertyReader moviedroidPropertyReader;
     final MoviedroidUriBuilder moviedroidUriBuilder;
 
@@ -55,7 +59,7 @@ public class DetailFragment extends Fragment {
         final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
         renderMovieDetails(movieId);
 
-        final View trailerView = inflater.inflate(R.layout.trailer_content, container, false);
+        final View trailerView = inflater.inflate(R.layout.trailer_content, container);
         renderTrailer(trailerView, movieId);
         return rootView;
     }
@@ -63,10 +67,7 @@ public class DetailFragment extends Fragment {
     private void renderTrailer(View trailerView, int movieId) {
         final ListView trailerListView = (ListView) trailerView.findViewById(R.id.trailer_listview);
 
-        final Trailer trailer = new Trailer();
-        trailer.addVideo(new Video("abc", "xyx"));
-
-        trailerListAdapter = new TrailerListAdapter(getContext(), trailer);
+        trailerListAdapter = new TrailerListAdapter(getContext(), new Trailer());
         trailerListView.setAdapter(trailerListAdapter);
 
         final TrailerTask trailerTask = new TrailerTask(this);
