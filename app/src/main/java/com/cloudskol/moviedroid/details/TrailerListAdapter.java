@@ -37,8 +37,6 @@ public class TrailerListAdapter extends BaseAdapter {
         if (trailer_.getVideos() != null) {
             videos = new ArrayList<Video>(trailer_.getVideos());
         }
-
-        Log.v(LOG_TAG, "Constructor called");
     }
 
     @Override
@@ -72,8 +70,6 @@ public class TrailerListAdapter extends BaseAdapter {
         final Video video = videos.get(position);
         holder.trailerNameView.setText(video.getName());
 
-        Log.v(LOG_TAG, "Video name: " + video.getName());
-
         return view;
     }
 
@@ -82,7 +78,6 @@ public class TrailerListAdapter extends BaseAdapter {
     }
 
     public void setTrailer(Trailer trailer) {
-        Log.v(LOG_TAG, "setTrailer called");
         trailer_ = trailer;
         videos.clear();
         videos.addAll(trailer.getVideos());

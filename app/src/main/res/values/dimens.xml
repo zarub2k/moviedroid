@@ -15,4 +15,7 @@
     <dimen name="details_title_top_margin">10dp</dimen>
 
     <dimen name="hline_height">4dp</dimen>
+
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
 </resources>
