@@ -59,8 +59,8 @@ public class DetailFragment extends Fragment {
         final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
         renderMovieDetails(movieId);
 
-        final View trailerView = inflater.inflate(R.layout.trailer_content, container);
-        renderTrailer(trailerView, movieId);
+//        final View trailerView = rootView.findViewById(R.id.trailer_listview);
+        renderTrailer(rootView, movieId);
         return rootView;
     }
 

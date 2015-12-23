@@ -49,7 +49,12 @@
             android:textSize="@dimen/title_font_size_15"
             android:textStyle="bold"/>
 
-        <include layout="@layout/trailer_content" />
+        <!--<include layout="@layout/trailer_content" />-->
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/trailer_listview"
+            tools:listitem="@layout/trailer_content"/>
 
         <View
             android:layout_width="fill_parent"
