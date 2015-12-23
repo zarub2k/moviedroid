@@ -98,6 +98,10 @@ public class DetailFragment extends Fragment {
     }
 
     private void renderMovieDetails(int movieId) {
+        if (movieId == -1) {
+            return;
+        }
+
         MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
         movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
     }

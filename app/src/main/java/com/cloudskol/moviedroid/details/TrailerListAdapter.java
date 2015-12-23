@@ -78,6 +78,9 @@ public class TrailerListAdapter extends BaseAdapter {
     }
 
     public void setTrailer(Trailer trailer) {
+        if (trailer == null) {
+            return;
+        }
         trailer_ = trailer;
         videos.clear();
         videos.addAll(trailer.getVideos());
