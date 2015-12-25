@@ -11,7 +11,7 @@ import com.cloudskol.moviedroid.parser.TrailerJsonParser;
 
 /**
  * @author tham
- * 
+ *
  * Async task for fetching trailer for the given movie
  */
 public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {

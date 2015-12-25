@@ -54,8 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:id="@+id/trailer_listview"
-            tools:listitem="@layout/trailer_content" />
+            android:id="@+id/trailer_listview" />
 
         <View
             android:layout_width="fill_parent"
