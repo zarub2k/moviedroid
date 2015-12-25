@@ -23,6 +23,7 @@
     <string name="label_movie_release_date">Release Date</string>
     <string name="title_activity_movie_settings">Settings</string>
     <string name="title_activity_movie_trailers">Trailers</string>
+    <string name="title_activity_movie_actions">Actions:</string>
 
     <!-- Strings related to Settings -->
     <string name="pref_sort_by_key">sortby</string>

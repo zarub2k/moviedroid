@@ -14,7 +14,7 @@
     <dimen name="title_font_size_15">15sp</dimen>
     <dimen name="details_title_top_margin">10dp</dimen>
 
-    <dimen name="hline_height">4dp</dimen>
+    <dimen name="hline_height">2dp</dimen>
 
     <dimen name="padding_10dp">10dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>

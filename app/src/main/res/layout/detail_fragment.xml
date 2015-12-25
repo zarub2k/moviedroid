@@ -42,6 +42,44 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/title_activity_movie_actions"
+            android:text="@string/title_activity_movie_actions"
+            android:textSize="@dimen/title_font_size_15"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/trailers_image"
+                android:src="@android:drawable/ic_media_play"/>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/reviews_image"
+                android:src="@android:drawable/ic_menu_agenda"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/hline_height"
+            android:background="@color/hline"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/hline_height"
+            android:background="@color/hline"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/title_activity_movie_trailers"
             android:text="@string/title_activity_movie_trailers"
             android:textSize="@dimen/title_font_size_15"
