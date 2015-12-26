@@ -58,17 +58,28 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/action_container"
-            android:layout_below="@id/title_activity_movie_actions">
+            android:layout_below="@id/title_activity_movie_actions"
+            android:layout_marginTop="@dimen/margin_top_10dp">
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/trailers_image"
-                android:src="@android:drawable/ic_media_play"/>
+                android:src="@drawable/ic_play_circle_outline_white_48dp"
+                android:background="@color/colorRed" />
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/reviews_image"
-                android:src="@drawable/ic_bookmark_black_48dp"/>
+                android:src="@drawable/ic_turned_in_not_white_48dp"
+                android:background="@color/colorRed"
+                android:layout_marginLeft="@dimen/margin_10dp"/>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/share_image"
+                android:src="@drawable/ic_share_white_48dp"
+                android:background="@color/colorRed"
+                android:layout_marginLeft="@dimen/margin_10dp"/>
         </LinearLayout>
 
         <View
