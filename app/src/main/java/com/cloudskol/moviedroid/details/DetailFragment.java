@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
@@ -65,6 +66,18 @@ public class DetailFragment extends Fragment {
 //        final View trailerView = rootView.findViewById(R.id.trailer_listview);
 //        renderTrailer(rootView, movieId);
         return rootView;
+    }
+
+    public void onPlayTrailer(View view) {
+        Toast.makeText(getActivity(), "OnPlay clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onReview(View view) {
+        Toast.makeText(getActivity(), "on Review clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onShare(View view) {
+        Toast.makeText(getActivity(), "on Share clicked", Toast.LENGTH_SHORT).show();
     }
 
     private void renderTrailer(View trailerView, int movieId) {

@@ -65,21 +65,27 @@
                 android:layout_height="64dp"
                 android:id="@+id/trailers_image"
                 android:src="@drawable/ic_play_circle_outline_white_48dp"
-                android:background="@color/colorRed" />
+                android:background="@color/colorRed"
+                android:clickable="true"
+                android:onClick="onPlayTrailer"/>
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/reviews_image"
                 android:src="@drawable/ic_turned_in_not_white_48dp"
                 android:background="@color/colorRed"
-                android:layout_marginLeft="@dimen/margin_10dp"/>
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:clickable="true"
+                android:onClick="onReview"/>
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/share_image"
                 android:src="@drawable/ic_share_white_48dp"
                 android:background="@color/colorRed"
-                android:layout_marginLeft="@dimen/margin_10dp"/>
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:clickable="true"
+                android:onClick="onShare"/>
         </LinearLayout>
 
         <View
