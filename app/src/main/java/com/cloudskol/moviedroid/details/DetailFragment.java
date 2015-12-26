@@ -63,7 +63,7 @@ public class DetailFragment extends Fragment {
         renderMovieDetails(movieId);
 
 //        final View trailerView = rootView.findViewById(R.id.trailer_listview);
-        renderTrailer(rootView, movieId);
+//        renderTrailer(rootView, movieId);
         return rootView;
     }
 
