@@ -31,6 +31,7 @@ import com.squareup.picasso.Picasso;
  */
 public class DetailFragment extends Fragment {
     private static final String LOG_TAG = DetailFragment.class.getSimpleName();
+    public static String MOVIE_ID;
 
 
     final MoviedroidPropertyReader moviedroidPropertyReader;
@@ -60,8 +61,12 @@ public class DetailFragment extends Fragment {
         ratingBar = (RatingBar) rootView.findViewById(R.id.movie_details_rating);
         releaseDateView = (TextView) rootView.findViewById(R.id.movie_details_release_date);
 
-        final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
-        renderMovieDetails(movieId);
+//        final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
+//        renderMovieDetails(movieId);
+        final Bundle bundle = getArguments();
+        if (bundle != null) {
+            renderMovieDetails(bundle.getInt(Intent.EXTRA_TEXT));
+        }
 
 //        final View trailerView = rootView.findViewById(R.id.trailer_listview);
 //        renderTrailer(rootView, movieId);

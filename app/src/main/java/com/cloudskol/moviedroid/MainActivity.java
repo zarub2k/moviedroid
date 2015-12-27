@@ -1,16 +1,20 @@
 package com.cloudskol.moviedroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
+import com.cloudskol.moviedroid.list.MovieSelectionCallback;
 
 /**
  * @author tham
  *
  * Main activity for the moviedroid application
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MovieSelectionCallback {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private boolean hasDetailLayout_ = false;
@@ -62,6 +66,25 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.movie_details_container, new DetailFragment())
                     .commit();
+        }
+    }
+
+    @Override
+    public void onMovieSelected(int movieId) {
+        if (hasDetailLayout_) {
+            Toast.makeText(this, "Details enabled " + movieId, Toast.LENGTH_LONG).show();
+            final Bundle bundle = new Bundle();
+            bundle.putInt(Intent.EXTRA_TEXT, movieId);
+            final DetailFragment detailFragment = new DetailFragment();
+            detailFragment.setArguments(bundle);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.movie_details_container, detailFragment)
+                    .commit();
+        } else {
+            final Intent movieDetailsIntent = new Intent(this, DetailActivity.class)
+                    .putExtra(Intent.EXTRA_TEXT, movieId);
+            startActivity(movieDetailsIntent);
         }
     }
 }

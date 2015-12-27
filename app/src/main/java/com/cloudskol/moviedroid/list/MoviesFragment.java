@@ -94,10 +94,11 @@ public class MoviesFragment extends Fragment {
         spotifyGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Intent movieDetailsIntent = new Intent(getActivity(),
-                        DetailActivity.class)
-                        .putExtra(Intent.EXTRA_TEXT, moviesGridAdapter.getItem(position).getId());
-                startActivity(movieDetailsIntent);
+                ((MovieSelectionCallback)getActivity()).onMovieSelected(moviesGridAdapter.getItem(position).getId());
+//                final Intent movieDetailsIntent = new Intent(getActivity(),
+//                        DetailActivity.class)
+//                        .putExtra(Intent.EXTRA_TEXT, moviesGridAdapter.getItem(position).getId());
+//                startActivity(movieDetailsIntent);
             }
         });
 

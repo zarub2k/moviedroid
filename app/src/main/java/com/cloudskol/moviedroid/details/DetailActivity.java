@@ -1,5 +1,6 @@
 package com.cloudskol.moviedroid.details;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,7 +25,12 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.details_activity);
 
         if (savedInstanceState == null) {
+            final int movieId = getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
+            final Bundle bundle = new Bundle();
+            bundle.putInt(Intent.EXTRA_TEXT, movieId);
             detailFragment = new DetailFragment();
+            detailFragment.setArguments(bundle);
+
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.movie_details_container, detailFragment)
                     .commit();
