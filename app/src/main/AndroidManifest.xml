@@ -38,6 +38,14 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity android:name=".details.TrailerActivity"
+            android:label="@string/title_activity_movie_trailers"
+            android:parentActivityName=".details.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".details.DetailActivity" />
+        </activity>
+
         <!--<activity
             android:name="com.cloudskol.moviedroid.MainActivity"
             android:label="@string/app_name"

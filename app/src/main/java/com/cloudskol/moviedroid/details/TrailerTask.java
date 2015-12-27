@@ -17,10 +17,10 @@ import com.cloudskol.moviedroid.parser.TrailerJsonParser;
 public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
     private static final String LOG_TAG = TrailerTask.class.getSimpleName();
 
-    private DetailFragment detailFragment_;;
+    private TrailerActivity trailerActivity_;
 
-    public TrailerTask(DetailFragment detailFragment) {
-        detailFragment_ = detailFragment;
+    public TrailerTask(TrailerActivity trailerActivity) {
+        trailerActivity_ = trailerActivity;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class TrailerTask extends AsyncTask<Uri, Void, Trailer> {
     @Override
     protected void onPostExecute(Trailer trailer) {
         super.onPostExecute(trailer);
-        detailFragment_.onTrailerDataReceived(trailer);
+        trailerActivity_.onTrailerDataReceived(trailer);
         Log.v(LOG_TAG, "Trailer received " + trailer);
     }
 }

@@ -31,8 +31,6 @@ import com.squareup.picasso.Picasso;
  */
 public class DetailFragment extends Fragment {
     private static final String LOG_TAG = DetailFragment.class.getSimpleName();
-    public static String MOVIE_ID;
-
 
     final MoviedroidPropertyReader moviedroidPropertyReader;
     final MoviedroidUriBuilder moviedroidUriBuilder;
@@ -42,8 +40,6 @@ public class DetailFragment extends Fragment {
     private TextView overview;
     private RatingBar ratingBar;
     private TextView releaseDateView;
-
-    TrailerListAdapter trailerListAdapter;
 
     public DetailFragment() {
         setHasOptionsMenu(true);
@@ -63,18 +59,27 @@ public class DetailFragment extends Fragment {
 
 //        final int movieId = getActivity().getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
 //        renderMovieDetails(movieId);
-        final Bundle bundle = getArguments();
-        if (bundle != null) {
-            renderMovieDetails(bundle.getInt(Intent.EXTRA_TEXT));
-        }
+        renderMovieDetails(getCurrentMovieId());
 
 //        final View trailerView = rootView.findViewById(R.id.trailer_listview);
 //        renderTrailer(rootView, movieId);
         return rootView;
     }
 
+    private int getCurrentMovieId() {
+        final Bundle bundle = getArguments();
+        if (bundle != null) {
+            return bundle.getInt(Intent.EXTRA_TEXT);
+        }
+
+        return -1;
+    }
+
     public void onPlayTrailer(View view) {
         Toast.makeText(getActivity(), "OnPlay clicked", Toast.LENGTH_SHORT).show();
+        final Intent trailerIntent = new Intent(getActivity(), TrailerActivity.class)
+                .putExtra(Intent.EXTRA_TEXT, getCurrentMovieId());
+        startActivity(trailerIntent);
     }
 
     public void onReview(View view) {
@@ -83,36 +88,6 @@ public class DetailFragment extends Fragment {
 
     public void onShare(View view) {
         Toast.makeText(getActivity(), "on Share clicked", Toast.LENGTH_SHORT).show();
-    }
-
-    private void renderTrailer(View trailerView, int movieId) {
-        trailerListAdapter = new TrailerListAdapter(getContext(), new Trailer());
-        final ListView trailerListView = (ListView) trailerView.findViewById(R.id.trailer_listview);
-        trailerListView.setAdapter(trailerListAdapter);
-
-        //Adding click event for the list view
-        trailerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Video video = trailerListAdapter.getItem(position);
-                watchYoutubeVideo(video.getKey());
-            }
-        });
-
-        final TrailerTask trailerTask = new TrailerTask(this);
-        trailerTask.execute(moviedroidUriBuilder.getTrailer(movieId));
-    }
-
-    private void watchYoutubeVideo(String id) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Log.e(LOG_TAG, "Error while playing video with Youtube", e);
-            Intent intent=new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://www.youtube.com/watch?v="+id));
-            startActivity(intent);
-        }
     }
 
     private void renderMovieDetails(int movieId) {
@@ -130,9 +105,5 @@ public class DetailFragment extends Fragment {
         overview.setText(movie.getOverview());
         ratingBar.setRating(movie.getRating());
         releaseDateView.setText(movie.getReleaseDate());
-    }
-
-    public void onTrailerDataReceived(Trailer trailer) {
-        trailerListAdapter.setTrailer(trailer);
     }
 }
