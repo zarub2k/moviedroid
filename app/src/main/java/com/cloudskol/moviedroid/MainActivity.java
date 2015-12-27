@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
     @Override
     public void onMovieSelected(int movieId) {
         if (hasDetailLayout_) {
-            Toast.makeText(this, "Details enabled " + movieId, Toast.LENGTH_LONG).show();
             final Bundle bundle = new Bundle();
             bundle.putInt(Intent.EXTRA_TEXT, movieId);
             final DetailFragment detailFragment = new DetailFragment();
