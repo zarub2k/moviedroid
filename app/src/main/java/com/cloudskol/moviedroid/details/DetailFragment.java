@@ -76,14 +76,15 @@ public class DetailFragment extends Fragment {
     }
 
     public void onPlayTrailer(View view) {
-        Toast.makeText(getActivity(), "OnPlay clicked", Toast.LENGTH_SHORT).show();
         final Intent trailerIntent = new Intent(getActivity(), TrailerActivity.class)
                 .putExtra(Intent.EXTRA_TEXT, getCurrentMovieId());
         startActivity(trailerIntent);
     }
 
     public void onReview(View view) {
-        Toast.makeText(getActivity(), "on Review clicked", Toast.LENGTH_SHORT).show();
+        final Intent trailerIntent = new Intent(getActivity(), ReviewActivity.class)
+                .putExtra(Intent.EXTRA_TEXT, getCurrentMovieId());
+        startActivity(trailerIntent);
     }
 
     public void onShare(View view) {

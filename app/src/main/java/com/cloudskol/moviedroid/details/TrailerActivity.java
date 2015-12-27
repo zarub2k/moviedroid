@@ -18,6 +18,8 @@ import com.cloudskol.moviedroid.model.Video;
 
 /**
  * @author tham
+ *
+ * Activity to render the trailers of the given movie
  */
 public class TrailerActivity extends AppCompatActivity {
     private static final String LOG_TAG = TrailerActivity.class.getSimpleName();
