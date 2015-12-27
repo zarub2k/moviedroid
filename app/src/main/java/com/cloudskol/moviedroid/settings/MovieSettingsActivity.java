@@ -1,6 +1,9 @@
 package com.cloudskol.moviedroid.settings;
 
 
+import android.annotation.TargetApi;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -8,7 +11,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
 import com.cloudskol.moviedroid.R;
-import com.cloudskol.moviedroid.settings.AppCompatPreferenceActivity;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -52,5 +54,11 @@ public class MovieSettingsActivity extends AppCompatPreferenceActivity implement
                 .getDefaultSharedPreferences(preference.getContext())
                 .getString(preference.getKey(), "");
         onPreferenceChange(preference, preferenceSortBy);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public Intent getParentActivityIntent() {
+        return super.getParentActivityIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 }
