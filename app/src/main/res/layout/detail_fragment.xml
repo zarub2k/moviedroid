@@ -72,11 +72,20 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/reviews_image"
-                android:src="@drawable/ic_turned_in_not_white_48dp"
+                android:src="@drawable/ic_insert_comment_white_48dp"
                 android:background="@color/colorRed"
                 android:layout_marginLeft="@dimen/margin_10dp"
                 android:clickable="true"
                 android:onClick="onReview"/>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/favorite_image"
+                android:src="@drawable/ic_turned_in_not_white_48dp"
+                android:background="@color/colorRed"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:clickable="true"
+                android:onClick="onFavorite"/>
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
