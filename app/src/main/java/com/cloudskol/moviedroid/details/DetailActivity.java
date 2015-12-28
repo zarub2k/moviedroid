@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.cloudskol.moviedroid.R;
@@ -51,6 +52,26 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_trailer:
+                detailFragment.onPlayTrailer(null);
+                return true;
+
+            case R.id.action_favorite:
+                return true;
+
+            case R.id.action_share:
+                return true;
+
+            case R.id.action_review:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void  onPlayTrailer(View view) {
