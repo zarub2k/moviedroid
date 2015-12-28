@@ -3,6 +3,7 @@ package com.cloudskol.moviedroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
@@ -23,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        //Enable action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //Detail container is enabled
         if (findViewById(R.id.movie_details_container) != null) {
