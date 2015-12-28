@@ -2,7 +2,10 @@ package com.cloudskol.moviedroid.details;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 
 import com.cloudskol.moviedroid.R;
@@ -24,6 +27,13 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_activity);
 
+        //Enable action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         if (savedInstanceState == null) {
             final int movieId = getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
             final Bundle bundle = new Bundle();
@@ -35,6 +45,12 @@ public class DetailActivity extends AppCompatActivity {
                     .add(R.id.movie_details_container, detailFragment)
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return true;
     }
 
     public void  onPlayTrailer(View view) {
