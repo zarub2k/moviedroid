@@ -75,7 +75,7 @@ public class DetailFragment extends Fragment {
         return -1;
     }
 
-    public void onPlayTrailer(View view) {
+    public void onPlayTrailer() {
         final Intent trailerIntent = new Intent(getActivity(), TrailerActivity.class)
                 .putExtra(Intent.EXTRA_TEXT, getCurrentMovieId());
         startActivity(trailerIntent);

@@ -12,14 +12,14 @@
         android:title="Favorite"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/action_review"
+        android:icon="@drawable/ic_insert_comment_white_48dp"
+        android:title="Review"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_white_48dp"
         android:title="Share"
         app:showAsAction="ifRoom"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
-    <item
-        android:id="@+id/action_review"
-        android:icon="@drawable/ic_insert_comment_white_48dp"
-        android:title="Review"
-        app:showAsAction="never"/>
 </menu>

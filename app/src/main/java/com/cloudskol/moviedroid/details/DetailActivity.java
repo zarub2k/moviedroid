@@ -58,7 +58,7 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_trailer:
-                detailFragment.onPlayTrailer(null);
+                detailFragment.onPlayTrailer();
                 return true;
 
             case R.id.action_favorite:
@@ -72,17 +72,5 @@ public class DetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void  onPlayTrailer(View view) {
-        detailFragment.onPlayTrailer(view);
-    }
-
-    public void onReview(View view) {
-        detailFragment.onReview(view);
-    }
-
-    public void onShare(View view) {
-        detailFragment.onShare(view);
     }
 }
