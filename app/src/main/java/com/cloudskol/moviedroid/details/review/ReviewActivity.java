@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details;
+package com.cloudskol.moviedroid.details.review;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
