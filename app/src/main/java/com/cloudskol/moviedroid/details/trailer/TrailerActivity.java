@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details;
+package com.cloudskol.moviedroid.details.trailer;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

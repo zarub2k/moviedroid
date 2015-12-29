@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details;
+package com.cloudskol.moviedroid.details.trailer;
 
 import android.net.Uri;
 import android.os.AsyncTask;
