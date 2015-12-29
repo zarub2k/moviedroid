@@ -62,13 +62,17 @@ public class DetailActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_favorite:
-                return true;
-
-            case R.id.action_share:
+                detailFragment.onFavorite();
                 return true;
 
             case R.id.action_review:
+                detailFragment.onReview();
                 return true;
+
+            case R.id.action_share:
+                detailFragment.onShare();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
