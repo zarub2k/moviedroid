@@ -93,6 +93,7 @@ public class DetailFragment extends Fragment {
 
     private void renderMovieDetails(int movieId) {
         if (movieId == -1) {
+            Toast.makeText(getActivity(), "Movie id is not proper", Toast.LENGTH_SHORT).show();
             return;
         }
 
