@@ -78,6 +78,18 @@ public class MoviedroidUriBuilder {
         return movieTrailerUri;
     }
 
+    public Uri getReviews(int movieId) {
+        Uri movieReviewsUri = Uri.parse(propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_MOVIE_DETAILS))
+                .buildUpon()
+                .appendPath(String.valueOf(movieId))
+                .appendPath("reviews")
+                .appendQueryParameter("api_key", propertyReader_.getValue(MoviedroidPropertyKeys.SPOTIFY_API_KEY))
+                .build();
+
+        Log.v(LOG_TAG, "Movie reviews Uri: " + movieReviewsUri.toString());
+        return movieReviewsUri;
+    }
+
     private String getSortByValue(SortBy sortBy) {
 
         if (SortBy.MOST_POPULAR == sortBy) {
