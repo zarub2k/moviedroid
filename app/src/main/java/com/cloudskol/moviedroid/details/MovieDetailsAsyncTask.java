@@ -47,7 +47,6 @@ public class MovieDetailsAsyncTask extends AsyncTask<Uri, Void, Movie> {
     @Override
     protected void onPostExecute(Movie movie) {
         super.onPostExecute(movie);
-
         detailFragment_.onMovieDataReceived(movie);
     }
 }

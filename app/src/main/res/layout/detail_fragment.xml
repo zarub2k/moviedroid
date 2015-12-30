@@ -11,7 +11,7 @@
         android:padding="@dimen/padding_10dp"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".details.MovieDetailsActivity"
+        tools:context=".details.DetailActivity"
         tools:showIn="@layout/movie_details_activity">
 
         <TextView
@@ -19,14 +19,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/movie_details_title"
             android:textSize="@dimen/title_font_size_25"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/movie_details_poster"
-            android:layout_marginTop="@dimen/margin_top_10dp"
-            android:layout_marginBottom="@dimen/margin_bottom_10dp"/>
+            android:id="@+id/movie_details_poster" />
 
         <TextView
             android:layout_width="wrap_content"

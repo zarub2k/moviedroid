@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
@@ -31,7 +30,9 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
 
         //Detail container is enabled
         if (findViewById(R.id.movie_details_container) != null) {
+            hasDetailLayout_ = true;
             renderDetailLayout(savedInstanceState);
+
         } else {
             hasDetailLayout_ = false;
         }

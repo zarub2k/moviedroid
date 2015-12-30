@@ -91,16 +91,20 @@ public class DetailFragment extends Fragment {
     }
 
     private void renderMovieDetails(int movieId) {
-        if (movieId == -1) {
-            Toast.makeText(getActivity(), "Movie id is not proper", Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if (movieId == -1) {
+//            Toast.makeText(getActivity(), "Movie id is not proper", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
         movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
     }
 
     public void onMovieDataReceived(Movie movie) {
+        if (movie == null) {
+            return;
+        }
+
         Picasso.with(getActivity()).load(moviedroidUriBuilder.getMoviePoster780Uri(movie.getBackdrop())).into(posterImage);
         title.setText(movie.getTitle());
         overview.setText(movie.getOverview());

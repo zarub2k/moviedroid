@@ -65,7 +65,7 @@ public class MovieJsonParser {
 
     private Movie getMovie(JSONObject movieJson) throws JSONException {
         Movie movie = new Movie(movieJson.getInt(MovieJsonKeys.ID.getValue()),
-                movieJson.getString(MovieJsonKeys.TITLE.getValue()));
+                movieJson.getString(MovieJsonKeys.ORIGINAL_TITLE.getValue()));
         movie.setOverview(movieJson.getString(MovieJsonKeys.OVERVIEW.getValue()));
         movie.setPoster(movieJson.getString(MovieJsonKeys.POSTER.getValue()));
         movie.setBackdrop(movieJson.getString(MovieJsonKeys.BACKDROP.getValue()));
