@@ -40,7 +40,7 @@ public class ReviewTask extends AsyncTask<Uri, Void, List<Review>>{
         }
 
         Log.v(LOG_TAG, "Trailer Json: " + reviewsJson);
-        return TrailerJsonParser.getInstance().getTrailer(reviewsJson);
+        return ReviewJsonParser.getInstance().getReviews(reviewsJson);
     }
 
     @Override

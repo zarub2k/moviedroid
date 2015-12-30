@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
@@ -36,7 +37,7 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     private void renderReview(int movieId) {
-        reviewListAdapter = new ReviewListAdapter();
+        reviewListAdapter = new ReviewListAdapter(this, null);
         ListView reviewListView = (ListView) findViewById(R.id.review_listview);
         reviewListView.setAdapter(reviewListAdapter);
 
@@ -45,6 +46,12 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     public void onReviewDataReceived(List<Review> reviews) {
+        if (reviews == null || reviews.isEmpty()) {
+            this.finish();
+            Toast.makeText(ReviewActivity.this, "No review(s) available", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         reviewListAdapter.setReviews(reviews);
     }
 }
