@@ -1,8 +1,7 @@
-package com.cloudskol.moviedroid.parser;
+package com.cloudskol.moviedroid.trailer;
 
 import android.util.Log;
 
-import com.cloudskol.moviedroid.common.MoviedroidException;
 import com.cloudskol.moviedroid.model.Trailer;
 import com.cloudskol.moviedroid.model.Video;
 

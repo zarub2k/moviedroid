@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details.trailer;
+package com.cloudskol.moviedroid.trailer;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details.trailer;
+package com.cloudskol.moviedroid.trailer;
 
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -7,7 +7,6 @@ import android.util.Log;
 import com.cloudskol.moviedroid.common.MoviedroidException;
 import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Trailer;
-import com.cloudskol.moviedroid.parser.TrailerJsonParser;
 
 /**
  * @author tham

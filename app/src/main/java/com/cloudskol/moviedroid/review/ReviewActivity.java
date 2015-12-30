@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details.review;
+package com.cloudskol.moviedroid.review;
 
 import android.content.Intent;
 import android.os.Bundle;

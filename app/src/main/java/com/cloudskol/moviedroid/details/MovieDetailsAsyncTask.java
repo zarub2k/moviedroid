@@ -7,7 +7,7 @@ import android.util.Log;
 import com.cloudskol.moviedroid.common.MoviedroidException;
 import com.cloudskol.moviedroid.common.MoviedroidUrlConnector;
 import com.cloudskol.moviedroid.model.Movie;
-import com.cloudskol.moviedroid.parser.MovieJsonParser;
+import com.cloudskol.moviedroid.list.MovieJsonParser;
 
 /**
  * @author tham

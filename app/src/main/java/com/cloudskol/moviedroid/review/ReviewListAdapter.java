@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.details.review;
+package com.cloudskol.moviedroid.review;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -38,7 +38,7 @@
                 android:value=".MainActivity" />
         </activity>
 
-        <activity android:name=".details.trailer.TrailerActivity"
+        <activity android:name=".trailer.TrailerActivity"
             android:label="@string/title_activity_movie_trailers"
             android:parentActivityName=".details.DetailActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
@@ -47,7 +47,7 @@
                 android:value=".details.DetailActivity" />
         </activity>
 
-        <activity android:name=".details.review.ReviewActivity"
+        <activity android:name=".review.ReviewActivity"
             android:label="@string/title_activity_movie_reviews"
             android:parentActivityName=".details.DetailActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">

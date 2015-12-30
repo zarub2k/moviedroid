@@ -1,4 +1,4 @@
-package com.cloudskol.moviedroid.parser;
+package com.cloudskol.moviedroid.list;
 
 /**
  * @author tham

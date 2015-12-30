@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
-import com.cloudskol.moviedroid.details.review.ReviewActivity;
-import com.cloudskol.moviedroid.details.trailer.TrailerActivity;
+import com.cloudskol.moviedroid.review.ReviewActivity;
+import com.cloudskol.moviedroid.trailer.TrailerActivity;
 import com.cloudskol.moviedroid.model.Movie;
 import com.squareup.picasso.Picasso;
 
