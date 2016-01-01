@@ -10,7 +10,21 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <fragment
+        android:id="@+id/movies_fragment"
+        android:name="com.cloudskol.moviedroid.list.MoviesFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        tools:layout="@layout/movie_list_activity"/>
+
+    <FrameLayout
+        android:id="@+id/movie_details_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4" />
+
+    <!--<android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -22,19 +36,6 @@
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
-    </android.support.design.widget.AppBarLayout>
-
-    <fragment
-        android:id="@+id/movies_fragment"
-        android:name="com.cloudskol.moviedroid.list.MoviesFragment"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2" />
-
-    <FrameLayout
-        android:id="@+id/movie_details_container"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4" />
+    </android.support.design.widget.AppBarLayout>-->
 
 </LinearLayout>

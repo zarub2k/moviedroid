@@ -3,7 +3,11 @@ package com.cloudskol.moviedroid.details;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -37,9 +41,10 @@ public class DetailFragment extends Fragment {
     private TextView releaseDateView;
 
     public DetailFragment() {
-        setHasOptionsMenu(true);
         moviedroidPropertyReader = MoviedroidPropertyReader.getInstance(getActivity());
         moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
+
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -59,6 +64,35 @@ public class DetailFragment extends Fragment {
 //        final View trailerView = rootView.findViewById(R.id.trailer_listview);
 //        renderTrailer(rootView, movieId);
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.detail_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_trailer:
+                onPlayTrailer();
+                return true;
+
+            case R.id.action_favorite:
+                onFavorite();
+                return true;
+
+            case R.id.action_review:
+                onReview();
+                return true;
+
+            case R.id.action_share:
+                onShare();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private int getCurrentMovieId() {

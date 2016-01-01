@@ -2,8 +2,10 @@ package com.cloudskol.moviedroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
@@ -24,26 +26,25 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        //Enable action bar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         //Detail container is enabled
         if (findViewById(R.id.movie_details_container) != null) {
             hasDetailLayout_ = true;
-            renderDetailLayout(savedInstanceState);
-
+//            renderDetailLayout(savedInstanceState);
         } else {
             hasDetailLayout_ = false;
         }
+
+        //Enable action bar
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_spotify, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 //
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {

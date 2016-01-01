@@ -29,11 +29,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.details_activity);
 
         //Enable action bar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+//        setSupportActionBar(toolbar);
 
         if (savedInstanceState == null) {
             final int movieId = getIntent().getIntExtra(Intent.EXTRA_TEXT, -1);
@@ -46,35 +43,38 @@ public class DetailActivity extends AppCompatActivity {
                     .add(R.id.movie_details_container, detailFragment)
                     .commit();
         }
+
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.detail_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_trailer:
-                detailFragment.onPlayTrailer();
-                return true;
-
-            case R.id.action_favorite:
-                detailFragment.onFavorite();
-                return true;
-
-            case R.id.action_review:
-                detailFragment.onReview();
-                return true;
-
-            case R.id.action_share:
-                detailFragment.onShare();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.detail_menu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_trailer:
+//                detailFragment.onPlayTrailer();
+//                return true;
+//
+//            case R.id.action_favorite:
+//                detailFragment.onFavorite();
+//                return true;
+//
+//            case R.id.action_review:
+//                detailFragment.onReview();
+//                return true;
+//
+//            case R.id.action_share:
+//                detailFragment.onShare();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 }

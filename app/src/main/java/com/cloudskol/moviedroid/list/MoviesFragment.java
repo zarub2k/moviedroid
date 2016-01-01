@@ -42,29 +42,29 @@ public class MoviesFragment extends Fragment {
         moviedroidPropertyReader = MoviedroidPropertyReader.getInstance(getActivity());
         moviedroidUriBuilder = new MoviedroidUriBuilder(moviedroidPropertyReader);
 
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_spotify, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        if (itemId == R.id.action_refresh) {
-            loadMoviesData();
-            return true;
-        }
-
-        if (itemId == R.id.action_settings) {
-            showSettings();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu_spotify, menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        final int itemId = item.getItemId();
+//        if (itemId == R.id.action_refresh) {
+//            loadMoviesData();
+//            return true;
+//        }
+//
+//        if (itemId == R.id.action_settings) {
+//            showSettings();
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void showSettings() {
         final Intent movieSettingsIntent = new Intent(getActivity(), MovieSettingsActivity.class);
