@@ -39,7 +39,7 @@ public class MovieProvider extends ContentProvider {
                 break;
 
             case MOVIE_BY_ID:
-                typeValue = MovieContract.MovieEntry.CONTENT_TYPE_ITEM;
+                typeValue = MovieContract.MovieEntry.CONTENT_ITEM_TYPE;
                 break;
 
             default:
