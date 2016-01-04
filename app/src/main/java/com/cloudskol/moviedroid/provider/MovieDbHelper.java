@@ -20,18 +20,30 @@ public class MovieDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(buildCreateTableQuery());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(buildDropTableQuery());
+        onCreate(db);
+    }
 
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
     }
 
     private String buildCreateTableQuery() {
         final StringBuilder builder = new StringBuilder();
         builder.append("CREATE TABLE ");
         builder.append(MovieContract.MovieEntry.TABLE_NAME);
+        builder.append(" (");
+        builder.append(MovieContract.MovieEntry._ID + " INTEGER PRIMARY KEY, ");
+        builder.append(MovieContract.MovieEntry.COLUMN_MOVIE_ID + " INTEGER, ");
+        builder.append(MovieContract.MovieEntry.COLUMN_TITLE + " TEXT, ");
+        builder.append(MovieContract.MovieEntry.COLUMN_OVERVIEW + " TEXT");
+        builder.append(" )");
 
         Log.v(LOG_TAG, "Create table query: " + builder.toString());
         return builder.toString();
