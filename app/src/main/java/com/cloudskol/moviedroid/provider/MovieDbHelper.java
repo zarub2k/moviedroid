@@ -43,6 +43,8 @@ public class MovieDbHelper extends SQLiteOpenHelper {
         builder.append(MovieContract.MovieEntry.COLUMN_MOVIE_ID + " INTEGER, ");
         builder.append(MovieContract.MovieEntry.COLUMN_TITLE + " TEXT, ");
         builder.append(MovieContract.MovieEntry.COLUMN_OVERVIEW + " TEXT");
+        builder.append(MovieContract.MovieEntry.COLUMN_RATING + " REAL");
+        builder.append(MovieContract.MovieEntry.COLUMN_RELEASE_DATE + " TEXT");
         builder.append(" )");
 
         Log.v(LOG_TAG, "Create table query: " + builder.toString());
