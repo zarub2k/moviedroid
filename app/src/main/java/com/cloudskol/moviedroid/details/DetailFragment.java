@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
+import com.cloudskol.moviedroid.favorite.FavoriteTask;
 import com.cloudskol.moviedroid.review.ReviewActivity;
 import com.cloudskol.moviedroid.trailer.TrailerActivity;
 import com.cloudskol.moviedroid.model.Movie;
@@ -33,6 +34,7 @@ public class DetailFragment extends Fragment {
 
     final MoviedroidPropertyReader moviedroidPropertyReader;
     final MoviedroidUriBuilder moviedroidUriBuilder;
+    private Movie currentMovie_;
 
     private ImageView posterImage;
     private TextView title;
@@ -117,7 +119,9 @@ public class DetailFragment extends Fragment {
     }
 
     public void onFavorite() {
-        Toast.makeText(getActivity(), "on Favorite clicked", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "on Favorite clicked", Toast.LENGTH_SHORT).show();
+        final FavoriteTask favoriteTask = new FavoriteTask(getActivity());
+        favoriteTask.execute(currentMovie_);
     }
 
     public void onShare() {
@@ -135,6 +139,7 @@ public class DetailFragment extends Fragment {
     }
 
     public void onMovieDataReceived(Movie movie) {
+        currentMovie_ = movie;
         if (movie == null) {
             return;
         }
