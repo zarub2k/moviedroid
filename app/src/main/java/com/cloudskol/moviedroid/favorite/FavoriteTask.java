@@ -32,8 +32,13 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         Movie selectedMovie = params[0];
         final ContentValues contentValues = new ContentValues();
         contentValues.put(MovieContract.MovieEntry._ID, selectedMovie.getId());
+        contentValues.put(MovieContract.MovieEntry.COLUMN_TITLE, selectedMovie.getTitle());
+        contentValues.put(MovieContract.MovieEntry.COLUMN_OVERVIEW, selectedMovie.getOverview());
+        contentValues.put(MovieContract.MovieEntry.COLUMN_RATING, selectedMovie.getRating());
+        contentValues.put(MovieContract.MovieEntry.COLUMN_RELEASE_DATE, selectedMovie.getReleaseDate());
 
         final SQLiteDatabase database = dbHelper_.getWritableDatabase();
+        database.save
         return null;
     }
 }
