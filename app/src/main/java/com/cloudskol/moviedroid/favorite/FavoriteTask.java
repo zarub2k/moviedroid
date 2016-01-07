@@ -2,6 +2,7 @@ package com.cloudskol.moviedroid.favorite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -31,13 +32,18 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
             return null;
         }
 
-        Movie selectedMovie = params[0];
+        Movie movie = params[0];
+
+        if (isFavoriteAlready(movie.getId())) {
+            return (long)movie.getId();
+        }
+
         final ContentValues values = new ContentValues();
-        values.put(MovieContract.MovieEntry._ID, selectedMovie.getId());
-        values.put(MovieContract.MovieEntry.COLUMN_TITLE, selectedMovie.getTitle());
-        values.put(MovieContract.MovieEntry.COLUMN_OVERVIEW, selectedMovie.getOverview());
-        values.put(MovieContract.MovieEntry.COLUMN_RATING, selectedMovie.getRating());
-        values.put(MovieContract.MovieEntry.COLUMN_RELEASE_DATE, selectedMovie.getReleaseDate());
+        values.put(MovieContract.MovieEntry._ID, movie.getId());
+        values.put(MovieContract.MovieEntry.COLUMN_TITLE, movie.getTitle());
+        values.put(MovieContract.MovieEntry.COLUMN_OVERVIEW, movie.getOverview());
+        values.put(MovieContract.MovieEntry.COLUMN_RATING, movie.getRating());
+        values.put(MovieContract.MovieEntry.COLUMN_RELEASE_DATE, movie.getReleaseDate());
 
         final SQLiteDatabase database = dbHelper_.getWritableDatabase();
         long insertId = database.insert(MovieContract.MovieEntry.TABLE_NAME, null, values);
@@ -56,5 +62,17 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         }
 
         Toast.makeText(context_, message.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean isFavoriteAlready(int movieId) {
+        String[] projection = {MovieContract.MovieEntry._ID};
+        String selection = MovieContract.MovieEntry._ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(movieId)};
+
+        final SQLiteDatabase database = dbHelper_.getReadableDatabase();
+        final Cursor cursor = database.query(MovieContract.MovieEntry.TABLE_NAME, projection,
+                selection, selectionArgs, null, null, null);
+        Log.v(LOG_TAG, "Query result: " + cursor.getCount());
+        return cursor.getCount() > 0;
     }
 }

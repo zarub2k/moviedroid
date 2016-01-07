@@ -6,10 +6,12 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
 import com.cloudskol.moviedroid.list.MovieSelectionCallback;
+import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 /**
  * @author tham
@@ -45,27 +47,27 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        final int itemId = item.getItemId();
-////        if (itemId == R.id.action_refresh) {
-////            loadMoviesData();
-////            return true;
-////        }
-//
-//        if (itemId == R.id.action_settings) {
-//            showSettings();
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
-//    private void showSettings() {
-//        final Intent movieSettingsIntent = new Intent(this, MovieSettingsActivity.class);
-//        startActivity(movieSettingsIntent);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.action_refresh) {
+//            loadMoviesData();
+            return true;
+        }
+
+        if (itemId == R.id.action_settings) {
+            showSettings();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showSettings() {
+        final Intent movieSettingsIntent = new Intent(this, MovieSettingsActivity.class);
+        startActivity(movieSettingsIntent);
+    }
 
     private void renderDetailLayout(Bundle savedInstanceState) {
         hasDetailLayout_ = true;
