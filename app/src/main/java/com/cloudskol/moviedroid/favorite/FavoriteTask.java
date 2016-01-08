@@ -14,6 +14,8 @@ import com.cloudskol.moviedroid.provider.MovieDbHelper;
 
 /**
  * @author tham
+ *
+ * Asyn task implementation for storing favorite movie into the database
  */
 public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
     private static final String LOG_TAG = FavoriteTask.class.getSimpleName();
