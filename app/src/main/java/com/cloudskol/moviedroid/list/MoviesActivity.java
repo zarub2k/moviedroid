@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
@@ -80,7 +81,16 @@ public class MoviesActivity extends AppCompatActivity {
             return true;
         }
 
+        if (itemId == R.id.action_favorite) {
+            showFavorites();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showFavorites() {
+        Toast.makeText(this, "Favorites clicked", Toast.LENGTH_SHORT).show();
     }
 
     private void showSettings() {

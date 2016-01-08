@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
@@ -61,7 +62,16 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
             return true;
         }
 
+        if (itemId == R.id.action_favorite) {
+            showFavorites();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showFavorites() {
+        Toast.makeText(MainActivity.this, "Favorite clicked", Toast.LENGTH_SHORT).show();
     }
 
     private void showSettings() {
