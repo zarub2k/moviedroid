@@ -12,6 +12,7 @@
     <string name="title_activity_movies">Top 20 Movies</string>
     <string name="title_activity_scores">Scores Activity</string>
     <string name="title_activity_spotify">Spotify Movies</string>
+    <string name="title_activity_favorite">My Favorites</string>
 
     <!-- Action menu label -->
     <string name="action_favorite">Favorite Movies</string>

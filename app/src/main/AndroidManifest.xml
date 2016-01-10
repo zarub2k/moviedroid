@@ -56,6 +56,15 @@
                 android:value=".details.DetailActivity" />
         </activity>
 
+        <activity android:name=".favorite.FavoritesActivity"
+            android:label="@string/title_activity_favorite"
+            android:parentActivityName=".details.DetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".details.DetailActivity" />
+        </activity>
+
         <provider
             android:authorities="com.cloudskol.moviedroid"
             android:name=".provider.MovieProvider" />

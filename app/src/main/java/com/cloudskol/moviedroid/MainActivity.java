@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.cloudskol.moviedroid.details.DetailActivity;
 import com.cloudskol.moviedroid.details.DetailFragment;
+import com.cloudskol.moviedroid.favorite.FavoritesActivity;
 import com.cloudskol.moviedroid.list.MovieSelectionCallback;
 import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements MovieSelectionCal
     }
 
     private void showFavorites() {
-        Toast.makeText(MainActivity.this, "Favorite clicked", Toast.LENGTH_SHORT).show();
+        final Intent intent = new Intent(this, FavoritesActivity.class);
+        startActivity(intent);
     }
 
     private void showSettings() {

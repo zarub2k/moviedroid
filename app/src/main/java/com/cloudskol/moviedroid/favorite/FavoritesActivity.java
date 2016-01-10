@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.cloudskol.moviedroid.R;
+import com.cloudskol.moviedroid.provider.MovieDbHelper;
 
 /**
  * @author tham
@@ -21,6 +22,8 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void renderMyFavorites() {
-
+        final MovieDbHelper movieDbHelper = new MovieDbHelper(this);
+        final FavoritesTask favoritesTask = new FavoritesTask(this, movieDbHelper);
+        favoritesTask.execute();
     }
 }
