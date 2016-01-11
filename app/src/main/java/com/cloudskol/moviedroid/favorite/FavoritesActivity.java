@@ -16,6 +16,8 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = FavoritesActivity.class.getSimpleName();
 
+    private FavoriteListAdapter favoriteListAdapter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +27,13 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void renderMyFavorites() {
+        favoriteListAdapter = new FavoriteListAdapter();
         final MovieDbHelper movieDbHelper = new MovieDbHelper(this);
         final FavoritesTask favoritesTask = new FavoritesTask(this, movieDbHelper);
         favoritesTask.execute();
     }
 
     public void onFavoriteMoviesReceived(List<Movie> movies) {
-        
+        favoriteListAdapter.setMovies(movies);
     }
 }
