@@ -30,8 +30,7 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
 
     @Override
     protected List<Movie> doInBackground(Void... params) {
-        getFavoriteMovies();
-        return null;
+        return getFavoriteMovies();
     }
 
     private List<Movie> getFavoriteMovies() {
@@ -42,7 +41,7 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
         Log.v(LOG_TAG, "Size of the cursor is: " + count);
 
         if (count == 0) {
-            return null;
+            return new ArrayList<Movie>(2);
         }
 
         cursor.moveToFirst();
@@ -65,10 +64,13 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
                 MovieContract.MovieEntry._ID));
         final String title = cursor.getString(cursor.getColumnIndexOrThrow(
                 MovieContract.MovieEntry.COLUMN_TITLE));
+        final String overview = cursor.getString(cursor.getColumnIndexOrThrow(
+                MovieContract.MovieEntry.COLUMN_OVERVIEW));
 
         Log.v(LOG_TAG, title + " > " + id);
 
         final Movie movie = new Movie((int) id, title);
+        movie.setOverview(overview);
         return movie;
     }
 }

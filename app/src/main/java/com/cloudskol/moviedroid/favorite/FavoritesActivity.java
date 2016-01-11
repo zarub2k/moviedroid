@@ -2,6 +2,8 @@ package com.cloudskol.moviedroid.favorite;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.ListView;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.model.Movie;
@@ -27,7 +29,10 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void renderMyFavorites() {
-        favoriteListAdapter = new FavoriteListAdapter();
+        favoriteListAdapter = new FavoriteListAdapter(this, null);
+        final ListView favoriteListView = (ListView) findViewById(R.id.favorite_listview);
+        favoriteListView.setAdapter(favoriteListAdapter);
+
         final MovieDbHelper movieDbHelper = new MovieDbHelper(this);
         final FavoritesTask favoritesTask = new FavoritesTask(this, movieDbHelper);
         favoritesTask.execute();

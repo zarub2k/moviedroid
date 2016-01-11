@@ -1,6 +1,7 @@
 package com.cloudskol.moviedroid.favorite;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,6 @@ import android.widget.TextView;
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.model.Movie;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +19,12 @@ import java.util.List;
  * @author tham
  */
 public class FavoriteListAdapter extends BaseAdapter {
-    private FavoritesActivity context_;
+    private static final String LOG_TAG = FavoriteListAdapter.class.getSimpleName();
+
     private List<Movie> movies_;
     private LayoutInflater inflater;
 
     public FavoriteListAdapter(FavoritesActivity context, List<Movie> movies) {
-        context_ = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         initializeMovies(movies);
@@ -37,7 +36,7 @@ public class FavoriteListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Movie getItem(int position) {
         return movies_.get(position);
     }
 

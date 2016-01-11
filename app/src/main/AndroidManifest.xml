@@ -58,11 +58,11 @@
 
         <activity android:name=".favorite.FavoritesActivity"
             android:label="@string/title_activity_favorite"
-            android:parentActivityName=".details.DetailActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".details.DetailActivity" />
+                android:value=".MainActivity" />
         </activity>
 
         <provider
