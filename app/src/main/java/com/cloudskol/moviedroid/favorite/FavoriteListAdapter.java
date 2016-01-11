@@ -5,8 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.model.Movie;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +27,18 @@ public class FavoriteListAdapter extends BaseAdapter {
     public FavoriteListAdapter(FavoritesActivity context, List<Movie> movies) {
         context_ = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        
+
         initializeMovies(movies);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return movies_.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return movies_.get(position);
     }
 
     @Override
@@ -43,7 +48,24 @@ public class FavoriteListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        FavoriteViewHolder viewHolder;
+
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.favorite_list_item, null, false);
+
+            viewHolder = new FavoriteViewHolder();
+            viewHolder.title = (TextView) convertView.findViewById(R.id.title);
+            viewHolder.overview = (TextView) convertView.findViewById(R.id.overview);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (FavoriteViewHolder) convertView.getTag();
+        }
+
+        final Movie movie = movies_.get(position);
+        viewHolder.title.setText(movie.getTitle());
+        viewHolder.overview.setText(movie.getOverview());
+
+        return convertView;
     }
 
     public void setMovies(List<Movie> movies) {
@@ -53,6 +75,11 @@ public class FavoriteListAdapter extends BaseAdapter {
 
         movies_.addAll(movies);
         notifyDataSetChanged();
+    }
+
+    private class FavoriteViewHolder {
+        TextView title;
+        TextView overview;
     }
 
     private void initializeMovies(List<Movie> movies) {
