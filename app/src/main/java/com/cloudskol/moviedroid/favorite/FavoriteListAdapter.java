@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * @author tham
+ *
+ * List adapter for favorite movies
  */
 public class FavoriteListAdapter extends BaseAdapter {
     private static final String LOG_TAG = FavoriteListAdapter.class.getSimpleName();
