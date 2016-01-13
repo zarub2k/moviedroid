@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
@@ -106,8 +107,13 @@ public class MoviesFragment extends Fragment {
     }
 
     private void loadMoviesData() {
-        final MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(moviesGridAdapter);
-        moviesAsyncTask.execute(moviedroidUriBuilder.discoverMoviesUri(getSortByPreferenceValue()));
+        final SortBy sortByPreferenceValue = getSortByPreferenceValue();
+        if (SortBy.FAVORITE == sortByPreferenceValue) {
+            Toast.makeText(getActivity(), "Favorite behavior enforced", Toast.LENGTH_SHORT).show();
+        } else {
+            final MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(moviesGridAdapter);
+            moviesAsyncTask.execute(moviedroidUriBuilder.discoverMoviesUri(sortByPreferenceValue));
+        }
     }
 
     /**
