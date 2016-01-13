@@ -36,11 +36,13 @@
     <string-array name="movies_sort_by_list_labels">
         <item>Most Popular</item>
         <item>Highest Rated</item>
+        <item>Favorites</item>
     </string-array>
 
     <string-array name="movies_sort_by_list_values">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- Example General settings -->

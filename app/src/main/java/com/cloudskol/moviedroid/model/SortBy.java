@@ -7,7 +7,8 @@ package com.cloudskol.moviedroid.model;
  */
 public enum SortBy {
     MOST_POPULAR(0),
-    HIGHEST_RATED(1);
+    HIGHEST_RATED(1),
+    FAVORITE(2);
 
     private int value;
 
