@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.model.Movie;
 import com.squareup.picasso.Picasso;
@@ -54,7 +55,11 @@ public class MoviesGridAdapter extends BaseAdapter {
         }
 
         final Movie movie = movies_.get(position);
-        Picasso.with(context_).load(moviedroidUriBuilder_.getMoviePoster185Uri(movie.getPoster())).into(imageView);
+        Picasso.with(context_)
+                .load(moviedroidUriBuilder_.getMoviePoster185Uri(movie.getPoster()))
+                .placeholder(R.drawable.ic_sync_black_24dp)
+                .error(R.drawable.ic_action)
+                .into(imageView);
         return imageView;
     }
 

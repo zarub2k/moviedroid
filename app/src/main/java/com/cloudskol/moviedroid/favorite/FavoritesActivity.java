@@ -33,9 +33,9 @@ public class FavoritesActivity extends AppCompatActivity {
         final ListView favoriteListView = (ListView) findViewById(R.id.favorite_listview);
         favoriteListView.setAdapter(favoriteListAdapter);
 
-        final MovieDbHelper movieDbHelper = new MovieDbHelper(this);
-        final FavoritesTask favoritesTask = new FavoritesTask(this, movieDbHelper);
-        favoritesTask.execute();
+//        final MovieDbHelper movieDbHelper = new MovieDbHelper(this);
+//        final FavoritesTask favoritesTask = new FavoritesTask(this, movieDbHelper);
+//        favoritesTask.execute();
     }
 
     public void onFavoriteMoviesReceived(List<Movie> movies) {

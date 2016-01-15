@@ -19,8 +19,10 @@ import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
 import com.cloudskol.moviedroid.details.DetailActivity;
+import com.cloudskol.moviedroid.favorite.FavoritesTask;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.model.SortBy;
+import com.cloudskol.moviedroid.provider.MovieDbHelper;
 import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 import java.util.ArrayList;
@@ -109,7 +111,9 @@ public class MoviesFragment extends Fragment {
     private void loadMoviesData() {
         final SortBy sortByPreferenceValue = getSortByPreferenceValue();
         if (SortBy.FAVORITE == sortByPreferenceValue) {
-            Toast.makeText(getActivity(), "Favorite behavior enforced", Toast.LENGTH_SHORT).show();
+            final MovieDbHelper movieDbHelper = new MovieDbHelper(getActivity());
+            final FavoritesTask favoritesTask = new FavoritesTask(moviesGridAdapter, movieDbHelper);
+            favoritesTask.execute();
         } else {
             final MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(moviesGridAdapter);
             moviesAsyncTask.execute(moviedroidUriBuilder.discoverMoviesUri(sortByPreferenceValue));

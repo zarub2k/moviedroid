@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.cloudskol.moviedroid.list.MoviesGridAdapter;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.provider.MovieContract;
 import com.cloudskol.moviedroid.provider.MovieDbHelper;
@@ -19,10 +20,10 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
 
     private static final String LOG_TAG = FavoritesTask.class.getSimpleName();
 
-    private FavoritesActivity context_;
+    private MoviesGridAdapter context_;
     private MovieDbHelper dbHelper_;
 
-    public FavoritesTask(FavoritesActivity context, MovieDbHelper dbHelper) {
+    public FavoritesTask(MoviesGridAdapter context, MovieDbHelper dbHelper) {
         context_ = context;
         dbHelper_ = dbHelper;
     }
@@ -30,6 +31,12 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
     @Override
     protected List<Movie> doInBackground(Void... params) {
         return getFavoriteMovies();
+    }
+
+    @Override
+    protected void onPostExecute(List<Movie> movies) {
+        context_.clear();
+        context_.addAll(movies);
     }
 
     private List<Movie> getFavoriteMovies() {
@@ -51,11 +58,6 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
         }
 
         return favoriteMovies;
-    }
-
-    @Override
-    protected void onPostExecute(List<Movie> movies) {
-        context_.onFavoriteMoviesReceived(movies);
     }
 
     private Movie getMovie(Cursor cursor) {

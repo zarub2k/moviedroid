@@ -104,6 +104,10 @@ public class MoviedroidUriBuilder {
     }
 
     private String removeSlash(String value) {
+        if (value == null) {
+            return "";
+        }
+
         if (value.startsWith("/")) {
             value = value.substring(value.indexOf("/") + 1);
         }
