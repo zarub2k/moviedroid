@@ -54,6 +54,9 @@ public class MoviesGridAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
+        imageView.setMinimumWidth(100);
+        imageView.setMinimumHeight(250);
+
         final Movie movie = movies_.get(position);
         Picasso.with(context_)
                 .load(moviedroidUriBuilder_.getMoviePoster185Uri(movie.getPoster()))
