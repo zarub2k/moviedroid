@@ -9,6 +9,7 @@ import com.cloudskol.moviedroid.list.MoviesGridAdapter;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.provider.MovieContract;
 import com.cloudskol.moviedroid.provider.MovieDbHelper;
+import com.cloudskol.moviedroid.provider.MovieDbManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,11 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
     private static final String LOG_TAG = FavoritesTask.class.getSimpleName();
 
     private MoviesGridAdapter context_;
-    private MovieDbHelper dbHelper_;
+    private MovieDbManager dbManager_;
 
     public FavoritesTask(MoviesGridAdapter context, MovieDbHelper dbHelper) {
         context_ = context;
-        dbHelper_ = dbHelper;
+        dbManager_ = new MovieDbManager(dbHelper);
     }
 
     @Override
@@ -40,38 +41,6 @@ public class FavoritesTask extends AsyncTask<Void, Void, List<Movie>> {
     }
 
     private List<Movie> getFavoriteMovies() {
-        final SQLiteDatabase database = dbHelper_.getReadableDatabase();
-        final Cursor cursor = database.query(MovieContract.MovieEntry.TABLE_NAME,
-                null, null, null, null, null, null);
-        final int count = cursor.getCount();
-        Log.v(LOG_TAG, "Size of the cursor is: " + count);
-
-        if (count == 0) {
-            return new ArrayList<Movie>(2);
-        }
-
-        cursor.moveToFirst();
-        List<Movie> favoriteMovies = new ArrayList<Movie>(count);
-        for (int i = 0; i < count; i++) {
-            favoriteMovies.add(getMovie(cursor));
-            cursor.moveToNext();
-        }
-
-        return favoriteMovies;
-    }
-
-    private Movie getMovie(Cursor cursor) {
-        final long id = cursor.getLong(cursor.getColumnIndexOrThrow(
-                MovieContract.MovieEntry._ID));
-        final String title = cursor.getString(cursor.getColumnIndexOrThrow(
-                MovieContract.MovieEntry.COLUMN_TITLE));
-        final String overview = cursor.getString(cursor.getColumnIndexOrThrow(
-                MovieContract.MovieEntry.COLUMN_OVERVIEW));
-
-        Log.v(LOG_TAG, title + " > " + id);
-
-        final Movie movie = new Movie((int) id, title);
-        movie.setOverview(overview);
-        return movie;
+        return dbManager_.getAll();
     }
 }

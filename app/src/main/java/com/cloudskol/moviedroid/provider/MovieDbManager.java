@@ -24,7 +24,7 @@ public class MovieDbManager {
         dbHelper_ = dbHelper;
     }
 
-    private List<Movie> getAll() {
+    public List<Movie> getAll() {
         final SQLiteDatabase database = dbHelper_.getReadableDatabase();
         final Cursor cursor = database.query(MovieContract.MovieEntry.TABLE_NAME,
                 null, null, null, null, null, null);
@@ -46,23 +46,8 @@ public class MovieDbManager {
             cursor.moveToNext();
         }
 
+        cursor.close();
         return movies;
-    }
-
-    private void get(Long id) {
-
-    }
-
-    private void create(Movie movie) {
-
-    }
-
-    private void update(Movie movie) {
-
-    }
-
-    private void delete(Long id) {
-
     }
 
     private Movie getMovie(Cursor cursor) {
