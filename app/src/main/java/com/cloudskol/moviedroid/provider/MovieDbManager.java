@@ -46,8 +46,27 @@ public class MovieDbManager {
             cursor.moveToNext();
         }
 
-        cursor.close();
+        cleanupResource(database, cursor);
         return movies;
+    }
+
+    private void cleanupResource(SQLiteDatabase database, Cursor cursor) {
+        cleanupCursor(cursor);
+        cleanupDatabase(database);
+    }
+
+    private void cleanupCursor(Cursor cursor) {
+        if (cursor.isClosed()) {
+            return;
+        }
+
+        cursor.close();
+    }
+
+    private void cleanupDatabase(SQLiteDatabase database) {
+        if (database.isOpen()) {
+            database.close();
+        }
     }
 
     private Movie getMovie(Cursor cursor) {
