@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * @author tham
+ *
+ * Helper class for communicating with database
  */
 public class MovieDbManager {
     private static final String LOG_TAG = MovieDbManager.class.getSimpleName();
