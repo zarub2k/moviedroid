@@ -7,6 +7,7 @@ import android.util.Log;
 
 /**
  * @author tham
+ * DB helper class for moviedroid application
  */
 public class MovieDbHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = MovieDbHelper.class.getSimpleName();
