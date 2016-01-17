@@ -49,7 +49,7 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
 
         final Uri insertedUri = context_.getContentResolver().insert(MovieProvider.CONTENT_URI, values);
         if (insertedUri != null) {
-            Log.v(LOG_TAG, "Inserted movie ID is: " + (long)movie.getId());
+            Log.v(LOG_TAG, "Inserted movie ID is: " + movie.getId());
             return Long.valueOf(movie.getId());
         }
 
