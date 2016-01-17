@@ -2,6 +2,7 @@ package com.cloudskol.moviedroid.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -64,6 +65,13 @@ public class MovieProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(Uri uri, ContentValues values) {
+        final long insertedId = writableDb.insert(MovieContract.MovieEntry.TABLE_NAME, null, values);
+        if (insertedId > 0) {
+            final Uri insertedUri = ContentUris.withAppendedId(CONTENT_URI, insertedId);
+            getContext().getContentResolver().notifyChange(insertedUri, null);
+            return insertedUri;
+        }
+
         return null;
     }
 

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.provider.MovieContract;
 import com.cloudskol.moviedroid.provider.MovieDbHelper;
+import com.cloudskol.moviedroid.provider.MovieProvider;
 
 /**
  * @author tham
@@ -21,11 +23,9 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
     private static final String LOG_TAG = FavoriteTask.class.getSimpleName();
 
     private Context context_;
-    private MovieDbHelper dbHelper_;
 
     public FavoriteTask(Context context) {
         context_ = context;
-        dbHelper_ = new MovieDbHelper(context_);
     }
 
     @Override
@@ -47,11 +47,13 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         values.put(MovieContract.MovieEntry.COLUMN_RATING, movie.getRating());
         values.put(MovieContract.MovieEntry.COLUMN_RELEASE_DATE, movie.getReleaseDate());
 
-        final SQLiteDatabase database = dbHelper_.getWritableDatabase();
-        long insertId = database.insert(MovieContract.MovieEntry.TABLE_NAME, null, values);
+        final Uri insertedUri = context_.getContentResolver().insert(MovieProvider.CONTENT_URI, values);
+        if (insertedUri != null) {
+            Log.v(LOG_TAG, "Inserted movie ID is: " + (long)movie.getId());
+            return (long)movie.getId();
+        }
 
-        Log.v(LOG_TAG, "Inserted movie ID is: " + insertId);
-        return insertId;
+        return Long.getLong("-1");
     }
 
     @Override
@@ -71,10 +73,10 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         String selection = MovieContract.MovieEntry._ID + " LIKE ?";
         String[] selectionArgs = {String.valueOf(movieId)};
 
-        final SQLiteDatabase database = dbHelper_.getReadableDatabase();
-        final Cursor cursor = database.query(MovieContract.MovieEntry.TABLE_NAME, projection,
-                selection, selectionArgs, null, null, null);
-        Log.v(LOG_TAG, "Query result: " + cursor.getCount());
+        final Cursor cursor = context_.getContentResolver().query(MovieProvider.CONTENT_URI,
+                projection, selection, selectionArgs, null);
+
+        Log.v(LOG_TAG, "Movies available in the favorites list: " + cursor.getCount());
         return cursor.getCount() > 0;
     }
 }
