@@ -54,6 +54,8 @@ public class MovieProvider extends ContentProvider {
                 cursor.setNotificationUri(getContext().getContentResolver(), uri); //Registers the content resolvers to receive notification
                 break;
             case MOVIE_BY_ID:
+                cursor = readableDb.query(MovieContract.MovieEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, null);
+                cursor.setNotificationUri(getContext().getContentResolver(), uri); //Registers the content resolvers to receive notification
                 break;
             default:
                 break;

@@ -37,7 +37,7 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         Movie movie = params[0];
 
         if (isFavoriteAlready(movie.getId())) {
-            return (long)movie.getId();
+            return Long.valueOf(0);
         }
 
         final ContentValues values = new ContentValues();
@@ -50,30 +50,34 @@ public class FavoriteTask extends AsyncTask<Movie, Void, Long> {
         final Uri insertedUri = context_.getContentResolver().insert(MovieProvider.CONTENT_URI, values);
         if (insertedUri != null) {
             Log.v(LOG_TAG, "Inserted movie ID is: " + (long)movie.getId());
-            return (long)movie.getId();
+            return Long.valueOf(movie.getId());
         }
 
-        return Long.getLong("-1");
+        return Long.valueOf(-1);
     }
 
     @Override
     protected void onPostExecute(Long result) {
         StringBuilder message = new StringBuilder();
-        if (result == -1) {
+        if (result == 0) {
+            message.append("Selected movie is already added into your favorite list");
+        } else if (result == -1) {
             message.append("Problem while inserting the movie data");
         } else {
-            message.append("Selected movie is added into your favorite list");
+            message.append("Movie is added into your favorite list");
         }
 
         Toast.makeText(context_, message.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private boolean isFavoriteAlready(int movieId) {
+        Log.v(LOG_TAG, "Selected movie id is: " + movieId);
         String[] projection = {MovieContract.MovieEntry._ID};
         String selection = MovieContract.MovieEntry._ID + " LIKE ?";
         String[] selectionArgs = {String.valueOf(movieId)};
 
-        final Cursor cursor = context_.getContentResolver().query(MovieProvider.CONTENT_URI,
+        final Uri movieIdUri = Uri.parse(MovieProvider.CONTENT_URI.toString() + "/" + movieId);
+        final Cursor cursor = context_.getContentResolver().query(movieIdUri,
                 projection, selection, selectionArgs, null);
 
         Log.v(LOG_TAG, "Movies available in the favorites list: " + cursor.getCount());
