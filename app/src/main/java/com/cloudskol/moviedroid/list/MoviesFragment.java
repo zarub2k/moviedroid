@@ -2,9 +2,11 @@ package com.cloudskol.moviedroid.list;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +25,7 @@ import com.cloudskol.moviedroid.favorite.FavoritesTask;
 import com.cloudskol.moviedroid.model.Movie;
 import com.cloudskol.moviedroid.model.SortBy;
 import com.cloudskol.moviedroid.provider.MovieDbHelper;
+import com.cloudskol.moviedroid.provider.MovieProvider;
 import com.cloudskol.moviedroid.settings.MovieSettingsActivity;
 
 import java.util.ArrayList;
@@ -111,8 +114,7 @@ public class MoviesFragment extends Fragment {
     private void loadMoviesData() {
         final SortBy sortByPreferenceValue = getSortByPreferenceValue();
         if (SortBy.FAVORITE == sortByPreferenceValue) {
-            final MovieDbHelper movieDbHelper = new MovieDbHelper(getActivity());
-            final FavoritesTask favoritesTask = new FavoritesTask(moviesGridAdapter, movieDbHelper);
+            final FavoritesTask favoritesTask = new FavoritesTask(moviesGridAdapter, getContext());
             favoritesTask.execute();
         } else {
             final MoviesAsyncTask moviesAsyncTask = new MoviesAsyncTask(moviesGridAdapter);

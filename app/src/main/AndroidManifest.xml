@@ -66,8 +66,8 @@
         </activity>
 
         <provider
-            android:authorities="com.cloudskol.moviedroid"
-            android:name=".provider.MovieProvider" />
+            android:name=".provider.MovieProvider"
+            android:authorities="com.cloudskol.moviedroid" />
 
         <!--<activity
             android:name="com.cloudskol.moviedroid.MainActivity"

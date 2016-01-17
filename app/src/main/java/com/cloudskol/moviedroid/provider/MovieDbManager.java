@@ -19,15 +19,7 @@ public class MovieDbManager {
 
     private static final int PAGE_SIZE = 20;
 
-    private MovieDbHelper dbHelper_;
-    public MovieDbManager(MovieDbHelper dbHelper) {
-        dbHelper_ = dbHelper;
-    }
-
-    public List<Movie> getAll() {
-        final SQLiteDatabase database = dbHelper_.getReadableDatabase();
-        final Cursor cursor = database.query(MovieContract.MovieEntry.TABLE_NAME,
-                null, null, null, null, null, null);
+    public List<Movie> getAll(Cursor cursor) {
         int count = cursor.getCount();
         Log.v(LOG_TAG, "Cursor count is: " + count);
 
@@ -46,27 +38,16 @@ public class MovieDbManager {
             cursor.moveToNext();
         }
 
-        cleanupResource(database, cursor);
+        closeCursor(cursor);
         return movies;
     }
 
-    private void cleanupResource(SQLiteDatabase database, Cursor cursor) {
-        cleanupCursor(cursor);
-        cleanupDatabase(database);
-    }
-
-    private void cleanupCursor(Cursor cursor) {
+    private void closeCursor(Cursor cursor) {
         if (cursor.isClosed()) {
             return;
         }
 
         cursor.close();
-    }
-
-    private void cleanupDatabase(SQLiteDatabase database) {
-        if (database.isOpen()) {
-            database.close();
-        }
     }
 
     private Movie getMovie(Cursor cursor) {
