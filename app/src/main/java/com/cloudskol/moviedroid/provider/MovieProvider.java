@@ -1,6 +1,7 @@
 package com.cloudskol.moviedroid.provider;
 
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -11,14 +12,23 @@ import android.support.annotation.Nullable;
  * @author tham
  */
 public class MovieProvider extends ContentProvider {
-    private static final UriMatcher uriMatcher = buildUriMatcher();
+    private static final String LOG_TAG = MovieProvider.class.getSimpleName();
 
-    private static final int MOVIE = 500;
-    private static final int MOVIE_BY_ID = 501;
+    private static final int ALL_MOVIES = 1;
+    private static final int MOVIE_BY_ID = 2;
+
+    private static final String CONTENT_AUTHORITY = "com.cloudskol.moviedroid";
+    private static final String MOVIES_URI = "content://com.cloudskol.moviedroid/movies";
+    public static final Uri CONTENT_URI = Uri.parse(MOVIES_URI);
+
+    private static final String PATH_MOVIES = "movies";
+    private static final String PATH_MOVIES_BY_ID = "movies/#";
+
+    private static final UriMatcher uriMatcher = buildUriMatcher();
 
     @Override
     public boolean onCreate() {
-        return false;
+        return true;
     }
 
     @Nullable
@@ -34,12 +44,12 @@ public class MovieProvider extends ContentProvider {
 
         final int match = uriMatcher.match(uri);
         switch (match) {
-            case MOVIE:
-                typeValue = MovieContract.MovieEntry.CONTENT_TYPE;
+            case ALL_MOVIES:
+                typeValue = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "." + PATH_MOVIES;
                 break;
 
             case MOVIE_BY_ID:
-                typeValue = MovieContract.MovieEntry.CONTENT_ITEM_TYPE;
+                typeValue = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "." + PATH_MOVIES;
                 break;
 
             default:
@@ -67,11 +77,8 @@ public class MovieProvider extends ContentProvider {
 
     static UriMatcher buildUriMatcher() {
         final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-
-        final String authority = MovieContract.CONTENT_AUTHORITY;
-
-        uriMatcher.addURI(authority, MovieContract.PATH_MOVIE, MOVIE);
-        uriMatcher.addURI(authority, MovieContract.PATH_MOVIE + "/#", MOVIE_BY_ID);
+        uriMatcher.addURI(CONTENT_AUTHORITY, PATH_MOVIES, ALL_MOVIES);
+        uriMatcher.addURI(CONTENT_AUTHORITY, PATH_MOVIES_BY_ID, MOVIE_BY_ID);
 
         return uriMatcher;
     }
