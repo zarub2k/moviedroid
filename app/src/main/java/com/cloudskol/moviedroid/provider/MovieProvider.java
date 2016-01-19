@@ -13,6 +13,8 @@ import android.util.Log;
 
 /**
  * @author tham
+ *
+ * Provider implementation for Moviedroid application
  */
 public class MovieProvider extends ContentProvider {
     private static final String LOG_TAG = MovieProvider.class.getSimpleName();
