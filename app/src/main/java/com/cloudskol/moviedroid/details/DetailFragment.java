@@ -3,7 +3,8 @@ package com.cloudskol.moviedroid.details;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,7 @@ import com.squareup.picasso.Picasso;
 public class DetailFragment extends Fragment {
     private static final String LOG_TAG = DetailFragment.class.getSimpleName();
 
+    private ShareActionProvider shareActionProvider;
     final MoviedroidPropertyReader moviedroidPropertyReader;
     final MoviedroidUriBuilder moviedroidUriBuilder;
     private Movie currentMovie_;
@@ -71,6 +73,21 @@ public class DetailFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.detail_menu, menu);
+
+        MenuItem shareMenu = menu.findItem(R.id.action_share);
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenu);
+        shareActionProvider.
+
+        final Intent shareIntent = new Intent(Intent.ACTION_SEND)
+                .putExtra(Intent.EXTRA_TEXT, "Watch this movie!");
+        shareIntent.setType("text/plain");
+        setShareIntent(shareIntent);
+    }
+
+    private void setShareIntent(Intent shareIntent) {
+        if (shareActionProvider != null) {
+            shareActionProvider.setShareIntent(shareIntent);
+        }
     }
 
     @Override
@@ -89,7 +106,6 @@ public class DetailFragment extends Fragment {
                 return true;
 
             case R.id.action_share:
-                onShare();
                 return true;
 
             default:
@@ -119,21 +135,11 @@ public class DetailFragment extends Fragment {
     }
 
     public void onFavorite() {
-//        Toast.makeText(getActivity(), "on Favorite clicked", Toast.LENGTH_SHORT).show();
         final FavoriteTask favoriteTask = new FavoriteTask(getActivity());
         favoriteTask.execute(currentMovie_);
     }
 
-    public void onShare() {
-        Toast.makeText(getActivity(), "on Share clicked", Toast.LENGTH_SHORT).show();
-    }
-
     private void renderMovieDetails(int movieId) {
-//        if (movieId == -1) {
-//            Toast.makeText(getActivity(), "Select a movie", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-
         MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
         movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
     }

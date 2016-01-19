@@ -5,20 +5,20 @@
         android:id="@+id/action_trailer"
         android:icon="@drawable/ic_play_circle_outline_white_48dp"
         android:title="Trailer"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never"
         android:orderInCategory="901"/>
     <item
         android:id="@+id/action_favorite"
         android:icon="@drawable/ic_turned_in_not_white_48dp"
         android:title="Favorite"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never"
         android:orderInCategory="902"/>
     <item
         android:id="@+id/action_share"
-        android:icon="@drawable/ic_share_white_48dp"
         android:title="Share"
-        app:showAsAction="ifRoom"
-        android:orderInCategory="903"/>
+        app:showAsAction="always"
+        android:orderInCategory="900"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
     <item
         android:id="@+id/action_review"
         android:icon="@drawable/ic_insert_comment_white_48dp"
