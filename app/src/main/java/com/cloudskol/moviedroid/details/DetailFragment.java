@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
@@ -76,7 +75,6 @@ public class DetailFragment extends Fragment {
 
         MenuItem shareMenu = menu.findItem(R.id.action_share);
         shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenu);
-        shareActionProvider.
 
         final Intent shareIntent = new Intent(Intent.ACTION_SEND)
                 .putExtra(Intent.EXTRA_TEXT, "Watch this movie!");
