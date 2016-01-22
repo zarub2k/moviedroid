@@ -12,6 +12,8 @@ import com.cloudskol.moviedroid.provider.MovieProvider;
 
 /**
  * @author tham
+ *
+ * Async task implementation for handling off-line functionality for movie details
  */
 public class MovieDetailOfflineTask extends AsyncTask<Integer, Void, Movie> {
 
