@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @author tham
- * 
+ *
  * Async tasks to fetch all the favorites movies from db
  */
 public class FavoritesTask extends AsyncTask<Void, Void, Cursor> {
