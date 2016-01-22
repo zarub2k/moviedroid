@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.cloudskol.moviedroid.R;
 import com.cloudskol.moviedroid.common.MoviedroidPropertyReader;
 import com.cloudskol.moviedroid.common.MoviedroidUriBuilder;
+import com.cloudskol.moviedroid.common.NetworkManager;
 import com.cloudskol.moviedroid.favorite.FavoriteTask;
 import com.cloudskol.moviedroid.review.ReviewActivity;
 import com.cloudskol.moviedroid.trailer.TrailerActivity;
@@ -138,8 +140,16 @@ public class DetailFragment extends Fragment {
     }
 
     private void renderMovieDetails(int movieId) {
-        MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
-        movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
+        final boolean isConnected = NetworkManager.getInstance().isNetworkConnected(getActivity());
+        Log.v(LOG_TAG, "Is network connection available: " + isConnected);
+
+        if (isConnected) {
+            MovieDetailsAsyncTask movieDetailsTask = new MovieDetailsAsyncTask(this);
+            movieDetailsTask.execute(moviedroidUriBuilder.getMovieDetails(movieId));
+        } else {
+            final MovieDetailOfflineTask movieDetailOfflineTask = new MovieDetailOfflineTask(getActivity(), this);
+            movieDetailOfflineTask.execute(movieId);
+        }
     }
 
     public void onMovieDataReceived(Movie movie) {
@@ -148,7 +158,12 @@ public class DetailFragment extends Fragment {
             return;
         }
 
-        Picasso.with(getActivity()).load(moviedroidUriBuilder.getMoviePoster780Uri(movie.getBackdrop())).into(posterImage);
+        Picasso.with(getActivity())
+                .load(moviedroidUriBuilder.getMoviePoster780Uri(movie.getBackdrop()))
+                .placeholder(R.drawable.ic_sync_black_24dp)
+                .error(R.drawable.ic_action)
+                .into(posterImage);
+//        Picasso.with(getActivity()).load(moviedroidUriBuilder.getMoviePoster780Uri(movie.getBackdrop())).into(posterImage);
         title.setText(movie.getTitle());
         overview.setText(movie.getOverview());
         ratingBar.setRating(movie.getRating());

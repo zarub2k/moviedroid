@@ -50,7 +50,7 @@ public class MovieDbManager {
         cursor.close();
     }
 
-    private Movie getMovie(Cursor cursor) {
+    public Movie getMovie(Cursor cursor) {
         final long id = cursor.getLong(cursor.getColumnIndexOrThrow(
                 MovieContract.MovieEntry._ID));
         final String title = cursor.getString(cursor.getColumnIndexOrThrow(
@@ -62,6 +62,9 @@ public class MovieDbManager {
 
         final Movie movie = new Movie((int) id, title);
         movie.setOverview(overview);
+
+        movie.setRating(cursor.getFloat(cursor.getColumnIndexOrThrow(MovieContract.MovieEntry.COLUMN_RATING)));
+        movie.setReleaseDate(cursor.getString(cursor.getColumnIndexOrThrow(MovieContract.MovieEntry.COLUMN_RELEASE_DATE)));
         return movie;
     }
 }
