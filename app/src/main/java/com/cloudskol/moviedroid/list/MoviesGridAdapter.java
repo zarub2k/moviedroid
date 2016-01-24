@@ -63,6 +63,7 @@ public class MoviesGridAdapter extends BaseAdapter {
                 .placeholder(R.drawable.ic_sync_black_24dp)
                 .error(R.drawable.ic_action)
                 .into(imageView);
+        imageView.setContentDescription(movie.getOriginalTitle());
         return imageView;
     }
 
