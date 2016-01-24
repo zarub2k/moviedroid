@@ -7,6 +7,8 @@ import android.util.Log;
 
 /**
  * @author tham
+ *
+ * Manager class for finding the liviness of the network connection
  */
 public class NetworkManager {
     private static final String LOG_TAG = NetworkManager.class.getSimpleName();
