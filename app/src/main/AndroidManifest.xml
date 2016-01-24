@@ -70,6 +70,9 @@
             android:name=".provider.MovieProvider"
             android:authorities="com.cloudskol.moviedroid" />
 
+        <service android:name=".list.MovieService"
+            android:exported="false"/>
+
         <!--<activity
             android:name="com.cloudskol.moviedroid.MainActivity"
             android:label="@string/app_name"
