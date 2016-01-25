@@ -9,6 +9,8 @@ import static com.cloudskol.moviedroid.common.NetworkStatusConstant.*;
 
 /**
  * @author tham
+ *
+ * Network status annotation which will indicate all the available status for the application
  */
 
 @Retention(RetentionPolicy.SOURCE)
