@@ -21,6 +21,12 @@ public class NetworkManager {
         return INSTANCE;
     }
 
+    /**
+     * Checks whether the network connection is available or not
+     *
+     * @param context
+     * @return true if the device is connected with any of the network available
+     */
     public boolean isNetworkConnected(Context context) {
         final ConnectivityManager connectivityManager =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
