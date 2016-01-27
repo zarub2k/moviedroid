@@ -14,6 +14,8 @@ import java.net.URL;
 
 /**
  * @author tham
+ *
+ * URL connector class for Moviedroid application
  */
 public class MoviedroidUrlConnector {
     public String getJson(Uri uri) throws MoviedroidException {
